@@ -2,6 +2,7 @@ package dev.codenation.logs.domain.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import dev.codenation.logs.domain.valueObject.ArchiveDetail;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,6 +18,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.UUID;
 
 @Data
 @Builder
@@ -27,8 +29,8 @@ import java.util.List;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private UUID id;
 
     @NotNull
     @Size(max = 50)
@@ -48,7 +50,10 @@ public class User {
     private String password;
 
     @OneToMany(mappedBy = "reportedBy")
-    private List<Error> errors;
+    private List<Log> errors;
+
+    @OneToMany(mappedBy = "archivedBy")
+    private List<ArchiveDetail> archiveDetails;
 
     @CreatedDate
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
