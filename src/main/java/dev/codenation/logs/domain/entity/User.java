@@ -1,13 +1,10 @@
 package dev.codenation.logs.domain.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-
-import dev.codenation.logs.domain.valueObject.ArchiveDetail;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -50,10 +47,10 @@ public class User {
     private String password;
 
     @OneToMany(mappedBy = "reportedBy")
-    private List<Log> errors;
+    private List<Log> logs;
 
     @OneToMany(mappedBy = "archivedBy")
-    private List<ArchiveDetail> archiveDetails;
+    private List<Log> archivedLogs;
 
     @CreatedDate
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
@@ -61,5 +58,5 @@ public class User {
 
     @LastModifiedDate
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
-    private LocalDateTime updatedAT;
+    private LocalDateTime updatedAt;
 }

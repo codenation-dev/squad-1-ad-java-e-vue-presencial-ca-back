@@ -1,9 +1,7 @@
 package dev.codenation.logs.domain.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import dev.codenation.logs.domain.enums.ErrorLevel;
 
-import dev.codenation.logs.domain.valueObject.ArchiveDetail;
 import dev.codenation.logs.domain.valueObject.LogDetail;
 import dev.codenation.logs.domain.valueObject.Origin;
 import lombok.AllArgsConstructor;
@@ -44,10 +42,19 @@ public class Log {
     @Embedded
     private Origin origin;
 
-    @Embedded
-    private ArchiveDetail archiveDetail;
+    @NotNull
+    @Builder.Default
+    private Boolean archived = false;
 
     @ManyToOne
+    @JoinColumn(name = "archived_by")
+    private User archivedBy;
+
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
+    private LocalDateTime archivedAt;
+
+    @ManyToOne
+    @JoinColumn(name = "reported_by")
     private User reportedBy;
 
     @CreatedDate

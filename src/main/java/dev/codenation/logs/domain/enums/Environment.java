@@ -1,6 +1,8 @@
 package dev.codenation.logs.domain.enums;
 
-public enum Environment {
+import java.io.Serializable;
+
+public enum Environment implements Serializable {
 
     DEV, HMG, PROD;
 

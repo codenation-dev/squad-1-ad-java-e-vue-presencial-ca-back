@@ -1,4 +1,4 @@
-package dev.codenation.logrepo;
+package dev.codenation.logs;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
