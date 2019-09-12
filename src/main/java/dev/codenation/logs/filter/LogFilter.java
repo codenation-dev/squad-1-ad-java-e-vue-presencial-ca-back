@@ -2,9 +2,11 @@ package dev.codenation.logs.filter;
 
 import dev.codenation.logs.domain.enums.Environment;
 import dev.codenation.logs.domain.enums.Severity;
+import lombok.Data;
 
 import java.util.UUID;
 
+@Data
 public class LogFilter {
 
     private UUID id;
