@@ -2,7 +2,6 @@ package dev.codenation.logs.service;
 
 import dev.codenation.logs.domain.entity.Log;
 import dev.codenation.logs.repository.LogRepository;
-import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

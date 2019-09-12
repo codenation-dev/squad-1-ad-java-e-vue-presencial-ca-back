@@ -1,11 +1,8 @@
 package dev.codenation.logs.mapper;
 
 import dev.codenation.logs.domain.entity.Log;
-import dev.codenation.logs.filter.LogFilter;
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
-import org.mapstruct.Mappings;
-import org.mapstruct.NullValueMappingStrategy;
+import dev.codenation.logs.parameter.LogFindParameter;
+import org.mapstruct.*;
 
 @Mapper(componentModel = "spring", nullValueMappingStrategy = NullValueMappingStrategy.RETURN_DEFAULT)
 public interface LogMapper {
@@ -23,5 +20,5 @@ public interface LogMapper {
             @Mapping(source = "reportedBy", target = "reportedBy.id")
     })
 
-    Log map(LogFilter filter);
+    Log map(LogFindParameter filter);
 }

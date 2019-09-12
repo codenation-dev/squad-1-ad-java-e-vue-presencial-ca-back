@@ -1,7 +1,7 @@
 package dev.codenation.logs.mapper;
 
 import dev.codenation.logs.domain.entity.User;
-import dev.codenation.logs.filter.UserFilter;
+import dev.codenation.logs.parameter.UserFindFilter;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
@@ -18,5 +18,5 @@ public interface UserMapper {
             @Mapping(source = "password", target = "password")
     })
 
-    User map(UserFilter filter);
+    User map(UserFindFilter filter);
 }
