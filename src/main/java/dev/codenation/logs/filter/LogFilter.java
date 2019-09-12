@@ -5,7 +5,7 @@ import dev.codenation.logs.domain.enums.Severity;
 
 import java.util.UUID;
 
-public class LogRequestFilter {
+public class LogFilter {
 
     private UUID id;
 

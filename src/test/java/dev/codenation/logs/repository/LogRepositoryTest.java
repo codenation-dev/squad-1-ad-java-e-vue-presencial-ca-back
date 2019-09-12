@@ -34,14 +34,8 @@ public class LogRepositoryTest {
    @Transactional
     public void givenLogSecurityAndLogEnvironment_whenGetAListOfLogs_thenCorrect() {
 
-        User u = User.builder()
-                .firstName("thalita")
-                .lastName("oliveira")
-                .email("thalicarol@gmail.com")
-                .password("blubouasdofas")
-                .build();
-
-        User save = userRepository.save(u);
+        User user = createNewUser();
+        userRepository.save(user);
 
         Log log1 = Log.builder()
                 .hash("hash")
@@ -54,7 +48,7 @@ public class LogRepositoryTest {
                         .environment(Environment.DEV)
                         .origin("localhost")
                         .build())
-                .reportedBy(save)
+                .reportedBy(user)
                 .build();
         Log log2 = Log.builder()
                 .hash("hash")
@@ -67,7 +61,7 @@ public class LogRepositoryTest {
                         .environment(Environment.DEV)
                         .origin("localhost")
                         .build())
-                .reportedBy(save)
+                .reportedBy(user)
                 .build();
 
          repository.saveAll(Arrays.asList(log1, log2));
@@ -83,5 +77,14 @@ public class LogRepositoryTest {
 
         List<Log> results = repository.findAll(logExample);
         Assert.assertThat(results, Matchers.hasSize(2));
+    }
+
+    private User createNewUser(){
+        return User.builder()
+                .firstName("thalita")
+                .lastName("oliveira")
+                .email("thalicarol@gmail.com")
+                .password("blubouasdofas")
+                .build();
     }
 }
