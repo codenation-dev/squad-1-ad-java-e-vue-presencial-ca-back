@@ -24,7 +24,7 @@ jobs:
               | circleci tests split --split-by=timings --timings-type=classname)
             cd ../../..
             # Format the arguments to "./gradlew test"
-            GRADLE_ARGS=$(echo $CLASSNAMES | awk '{for (i=1; i<=NF; i++) print "--tests --statcktrace",$i}')
+            GRADLE_ARGS=$(echo $CLASSNAMES | awk '{for (i=1; i<=NF; i++) print "--tests --stacktrace",$i}')
             echo "Prepared arguments for Gradle: $GRADLE_ARGS"
             ./gradlew test $GRADLE_ARGS
       - save_cache:
