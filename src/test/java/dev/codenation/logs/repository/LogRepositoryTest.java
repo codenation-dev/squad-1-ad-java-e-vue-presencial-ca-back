@@ -31,7 +31,7 @@ public class LogRepositoryTest {
     private UserRepository userRepository;
 
     @Test
-   @Transactional
+    @Transactional
     public void givenLogSecurityAndLogEnvironment_whenGetAListOfLogs_thenCorrect() {
 
         User user = createNewUser();
