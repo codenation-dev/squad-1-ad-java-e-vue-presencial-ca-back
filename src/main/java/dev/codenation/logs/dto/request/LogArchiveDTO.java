@@ -1,4 +1,4 @@
-package dev.codenation.logs.parameter;
+package dev.codenation.logs.dto.request;
 
 import lombok.Data;
 
