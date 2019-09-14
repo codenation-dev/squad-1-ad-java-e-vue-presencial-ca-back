@@ -5,6 +5,8 @@ jobs:
     environment:
       _JAVA_OPTIONS: "-Xmx3g"
       GRADLE_OPTS: "-Dorg.gradle.daemon=false -Dorg.gradle.workers.max=1"
+      USERDB: "squadone"
+      PASSWORDDB: "passwordDatabase"
     docker:
       - image: circleci/openjdk:11-jdk-stretch
     steps:
