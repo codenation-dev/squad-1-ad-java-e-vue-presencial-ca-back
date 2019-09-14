@@ -4,9 +4,13 @@ import dev.codenation.logs.domain.entity.Log;
 import dev.codenation.logs.domain.entity.User;
 import dev.codenation.logs.mapper.LogMapper;
 import dev.codenation.logs.parameter.LogArchiveParameter;
+<<<<<<< HEAD
 import dev.codenation.logs.parameter.LogFilter;
+=======
+import dev.codenation.logs.parameter.LogFindParameter;
+>>>>>>> ci-config
 import dev.codenation.logs.service.LogService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
@@ -18,11 +22,11 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+@AllArgsConstructor
 @RestController
 @RequestMapping("/logs")
 public class LogController {
 
-    @Autowired
     private LogService logService;
 
     @Autowired
