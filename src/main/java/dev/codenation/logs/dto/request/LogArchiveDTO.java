@@ -5,7 +5,7 @@ import lombok.Data;
 import java.util.UUID;
 
 @Data
-public class LogArchiveParameter {
+public class LogArchiveDTO {
 
     private UUID id;
 

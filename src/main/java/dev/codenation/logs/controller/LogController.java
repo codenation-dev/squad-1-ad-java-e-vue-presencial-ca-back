@@ -2,13 +2,15 @@ package dev.codenation.logs.controller;
 
 import dev.codenation.logs.domain.entity.Log;
 import dev.codenation.logs.domain.entity.User;
+import dev.codenation.logs.dto.request.LogArchiveDTO;
+import dev.codenation.logs.dto.request.LogFilterDTO;
 import dev.codenation.logs.mapper.LogMapper;
-import dev.codenation.logs.parameter.LogArchiveParameter;
-import dev.codenation.logs.parameter.LogFilter;
 import dev.codenation.logs.service.LogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
+import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.web.SortDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -35,13 +37,13 @@ public class LogController {
     }
 
     @GetMapping
-    public List<Log> findAll(LogFilter filter, @RequestParam(required = false) Sort sort) {
-        Example<Log> logExample = Example.of(mapper.map(filter));
+    public List<Log> findAll(LogFilterDTO filter, @SortDefault(sort = "createdAt", direction = Sort.Direction.DESC) Sort sort) {
+             Example<Log> logExample = Example.of(mapper.map(filter), ExampleMatcher.matchingAll().withIgnoreCase());
         return logService.findAll(logExample, sort);
     }
 
     @PatchMapping("/archive/{logId}")
-    public ResponseEntity<Log> archive(@PathVariable UUID logId, @Valid LogArchiveParameter filter) {
+    public ResponseEntity<Log> archive(@PathVariable UUID logId, @Valid LogArchiveDTO filter) {
 
         //ToDo return a message warning of mismatch ids
         if (logId != filter.getId())
