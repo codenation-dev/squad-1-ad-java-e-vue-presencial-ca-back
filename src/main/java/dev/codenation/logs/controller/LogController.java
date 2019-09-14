@@ -4,13 +4,10 @@ import dev.codenation.logs.domain.entity.Log;
 import dev.codenation.logs.domain.entity.User;
 import dev.codenation.logs.mapper.LogMapper;
 import dev.codenation.logs.parameter.LogArchiveParameter;
-<<<<<<< HEAD
 import dev.codenation.logs.parameter.LogFilter;
-=======
-import dev.codenation.logs.parameter.LogFindParameter;
->>>>>>> ci-config
 import dev.codenation.logs.service.LogService;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
