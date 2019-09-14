@@ -32,7 +32,8 @@ public class Log {
 
     @NotNull
     @Size(max = 100)
-    private String hash;
+    @Builder.Default
+    private Integer hash = this.logDetail.getMessage().hashCode();
 
     @NotNull
     @Embedded

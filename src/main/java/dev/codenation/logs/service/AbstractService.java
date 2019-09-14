@@ -26,6 +26,10 @@ public abstract class AbstractService<R extends JpaRepository<T, ID>, T, ID> {
         return repository.findAll(example, pageable);
     }
 
+    public void delete(T object){
+       repository.delete((T)object);
+    }
+
     public T save(T object) {
         return (T) repository.save(object);
     }

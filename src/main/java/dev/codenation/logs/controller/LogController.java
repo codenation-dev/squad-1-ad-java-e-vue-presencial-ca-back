@@ -7,9 +7,7 @@ import dev.codenation.logs.dto.request.LogFilterDTO;
 import dev.codenation.logs.mapper.LogMapper;
 import dev.codenation.logs.service.LogService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.ExampleMatcher;
-import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.*;
 import org.springframework.data.web.SortDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -38,8 +36,28 @@ public class LogController {
 
     @GetMapping
     public List<Log> findAll(LogFilterDTO filter, @SortDefault(sort = "createdAt", direction = Sort.Direction.DESC) Sort sort) {
-             Example<Log> logExample = Example.of(mapper.map(filter), ExampleMatcher.matchingAll().withIgnoreCase());
+        Example<Log> logExample = Example.of(mapper.map(filter), ExampleMatcher.matchingAll().withIgnoreCase());
         return logService.findAll(logExample, sort);
+    }
+
+    @GetMapping("/page")
+    public Page<Log> findAll(LogFilterDTO filter, Pageable page, @SortDefault(sort = "createdAt", direction = Sort.Direction.DESC) Sort sort) {
+        Example<Log> logExample = Example.of(mapper.map(filter), ExampleMatcher.matchingAll().withIgnoreCase());
+        return logService.findAll(logExample, page, sort);
+    }
+
+    @PostMapping
+    public Log post(@RequestBody Object log) {
+      //  Example<Log> logExample = Example.of(mapper.map(filter), ExampleMatcher.matchingAll().withIgnoreCase());
+       // return logService.findAll(logExample, page, sort);
+
+        return null;
+    }
+    @PostMapping("/batch")
+    public List<Log> post(@RequestBody List<Object> listLogs) {
+       // Example<Log> logExample = Example.of(mapper.map(filter), ExampleMatcher.matchingAll().withIgnoreCase());
+      //  return logService.findAll(logExample, page, sort);
+        return null;
     }
 
     @PatchMapping("/archive/{logId}")
@@ -63,5 +81,15 @@ public class LogController {
             return ResponseEntity.ok(aux);
         }
         return ResponseEntity.noContent().build();
+    }
+
+    @DeleteMapping("/{logId}")
+    public ResponseEntity<Log> archive(@PathVariable UUID logId) {
+        Optional <Log> log = logService.findById(logId);
+        if(log.isPresent()) {
+            logService.delete(log.get());
+            return ResponseEntity.ok(log.get());
+        }
+        return ResponseEntity.notFound().build(); //Do a review in status and message returning
     }
 }

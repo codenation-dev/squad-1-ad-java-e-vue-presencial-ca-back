@@ -1,8 +1,11 @@
 package dev.codenation.logs.mapper;
 
 import dev.codenation.logs.domain.entity.User;
-import dev.codenation.logs.dto.response.MessageResponseDTO;
-import org.mapstruct.*;
+import dev.codenation.logs.dto.request.UserFilterDTO;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.Mappings;
+import org.mapstruct.ReportingPolicy;
 
 @Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface UserMapper {
@@ -15,5 +18,5 @@ public interface UserMapper {
             @Mapping(source = "password", target = "password")
     })
 
-    User map(MessageResponseDTO filter);
+    User map(UserFilterDTO filter);
 }
