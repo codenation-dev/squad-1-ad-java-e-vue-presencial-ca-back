@@ -6,6 +6,7 @@ import dev.codenation.logs.mapper.LogMapper;
 import dev.codenation.logs.parameter.LogArchiveParameter;
 import dev.codenation.logs.parameter.LogFilter;
 import dev.codenation.logs.service.LogService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Sort;
@@ -18,11 +19,11 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+@AllArgsConstructor
 @RestController
 @RequestMapping("/logs")
 public class LogController {
 
-    @Autowired
     private LogService logService;
 
     @Autowired
