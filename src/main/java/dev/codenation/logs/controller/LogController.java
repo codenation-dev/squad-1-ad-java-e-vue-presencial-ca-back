@@ -2,10 +2,11 @@ package dev.codenation.logs.controller;
 
 import dev.codenation.logs.domain.entity.Log;
 import dev.codenation.logs.domain.entity.User;
-import dev.codenation.logs.parameter.LogFindParameter;
-import dev.codenation.logs.parameter.LogArchiveParameter;
 import dev.codenation.logs.mapper.LogMapper;
+import dev.codenation.logs.parameter.LogArchiveParameter;
+import dev.codenation.logs.parameter.LogFilter;
 import dev.codenation.logs.service.LogService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Sort;
@@ -18,13 +19,14 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+@AllArgsConstructor
 @RestController
 @RequestMapping("/logs")
 public class LogController {
 
-    @Autowired
     private LogService logService;
 
+    @Autowired
     private LogMapper mapper;
 
     @GetMapping("/{logId}")
@@ -34,7 +36,7 @@ public class LogController {
     }
 
     @GetMapping
-    public List<Log> findAll(@Valid LogFindParameter filter, @RequestParam(required = false) Sort sort) {
+    public List<Log> findAll(LogFilter filter, @RequestParam(required = false) Sort sort) {
         Example<Log> logExample = Example.of(mapper.map(filter));
         return logService.findAll(logExample, sort);
     }
