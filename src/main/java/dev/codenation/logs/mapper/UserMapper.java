@@ -2,12 +2,9 @@ package dev.codenation.logs.mapper;
 
 import dev.codenation.logs.domain.entity.User;
 import dev.codenation.logs.parameter.UserFindFilter;
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
-import org.mapstruct.Mappings;
-import org.mapstruct.NullValueMappingStrategy;
+import org.mapstruct.*;
 
-@Mapper(componentModel = "spring", nullValueMappingStrategy = NullValueMappingStrategy.RETURN_DEFAULT)
+@Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface UserMapper {
 
     @Mappings({
