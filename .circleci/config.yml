@@ -63,10 +63,9 @@ jobs:
         - checkout
         - run:
             name: Run Sonar
-              command: |
+            command: |
                 cd src/test/java
                 cd ../../..
-                # Format the arguments to "./gradlew test"
                 GRADLE_ARGS=$(echo $CLASSNAMES | awk '{for (i=1; i<=NF; i++) print " --stacktrace",$i}')
                 echo "Prepared arguments for Gradle: $GRADLE_ARGS"
                 ./gradlew sonarqube \
