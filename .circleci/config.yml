@@ -29,10 +29,10 @@ jobs:
             GRADLE_ARGS=$(echo $CLASSNAMES | awk '{for (i=1; i<=NF; i++) print "--tests --stacktrace",$i}')
             echo "Prepared arguments for Gradle: $GRADLE_ARGS"
             ./gradlew test $GRADLE_ARGS && ./gradlew sonarqube \
-            -Dsonar.projectKey=EvertonFreire_squad-one-backend \
-            -Dsonar.organization=evertonfreire \
+            -Dsonar.projectKey=IT_IS_SPARTAN \
+            -Dsonar.organization=squad-one-it \
             -Dsonar.host.url=https://sonarcloud.io \
-            -Dsonar.login=87e3b524b3a98ff9f781e47c812a80e16c009e55
+            -Dsonar.login=00c3c958b87be7c18bf80b19c23b21e73ca5a92f
 
       - save_cache:
           paths:
