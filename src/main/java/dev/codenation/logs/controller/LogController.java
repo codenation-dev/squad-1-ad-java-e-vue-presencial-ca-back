@@ -2,6 +2,7 @@ package dev.codenation.logs.controller;
 
 import dev.codenation.logs.domain.entity.Log;
 import dev.codenation.logs.domain.entity.User;
+import dev.codenation.logs.exception.message.log.LogCouldNotBeArchivedMessage;
 import dev.codenation.logs.exception.message.log.LogNotFoundMessage;
 import dev.codenation.logs.mapper.LogMapper;
 import dev.codenation.logs.parameter.LogArchiveParameter;
@@ -34,14 +35,11 @@ public class LogController {
     public ResponseEntity<Log> findById(@PathVariable UUID logId) throws LogNotFoundMessage {
         Optional<Log> log = logService.findById(logId);
 
-        throw new LogNotFoundMessage();
-
-//        if (log.isPresent()){
-//            return ResponseEntity.ok(log.get());
-//        }else {
-//            throw new LogNotFoundMessage();
-//        }
-//        return (log.isPresent()) ? ResponseEntity.ok(log.get()) : ResponseEntity.noContent().build();
+        if (log.isPresent()){
+            return ResponseEntity.ok(log.get());
+        }else {
+            throw new LogNotFoundMessage();
+        }
     }
 
     @GetMapping
@@ -51,7 +49,7 @@ public class LogController {
     }
 
     @PatchMapping("/archive/{logId}")
-    public ResponseEntity<Log> archive(@PathVariable UUID logId, @Valid LogArchiveParameter filter) {
+    public ResponseEntity<Log> archive(@PathVariable UUID logId, @Valid LogArchiveParameter filter) throws LogCouldNotBeArchivedMessage {
 
         //Todo do Todo, mudar para classe service essa validação.
         //ToDo return a message warning of mismatch ids
@@ -70,7 +68,9 @@ public class LogController {
             aux.setArchivedAt(LocalDateTime.now());
 
             return ResponseEntity.ok(aux);
+        }else{
+            throw new LogCouldNotBeArchivedMessage();
         }
-        return ResponseEntity.noContent().build();
     }
+
 }

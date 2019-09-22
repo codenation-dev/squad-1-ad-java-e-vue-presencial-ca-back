@@ -4,8 +4,7 @@ import dev.codenation.logs.exception.message.model.AbstractNotFoundMessage;
 
 public class UserNotFoundMessage extends AbstractNotFoundMessage {
 
-    @Override
-    public String getMessage() {
-        return "I'm sorry, your user was not found on our database. Did you want to register now?";
+    public UserNotFoundMessage() {
+        super("USER_DOES_NOT_EXISTS");
     }
 }
