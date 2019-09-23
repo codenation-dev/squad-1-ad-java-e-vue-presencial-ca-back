@@ -4,6 +4,8 @@ build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**
 !**/src/test/**
+/src/main/resources/application.properties
+.circleci
 
 ### STS ###
 .apt_generated

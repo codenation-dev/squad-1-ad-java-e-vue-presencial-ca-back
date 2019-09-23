@@ -11,14 +11,10 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
 import java.util.UUID;
 
 @Repository
 public interface LogRepository extends JpaRepository<Log, UUID> {
-
-    @Query(value = "select count(l.hash), l.hash from logs l")
-    List<Integer> countByHash();
 
     @Query(value = "select count(l.hash) as total," +
             "l2.*" +

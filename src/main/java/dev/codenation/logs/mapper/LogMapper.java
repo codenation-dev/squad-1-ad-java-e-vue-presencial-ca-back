@@ -1,6 +1,7 @@
 package dev.codenation.logs.mapper;
 
 import dev.codenation.logs.domain.entity.Log;
+import dev.codenation.logs.dto.request.LogFilterDTO;
 import dev.codenation.logs.dto.request.LogParameterDTO;
 import org.mapstruct.*;
 
@@ -22,10 +23,6 @@ public interface LogMapper {
             @Mapping(source = "reportedBy", target = "reportedBy.id")
     })
 
-    Log map(LogParameterDTO filter);
-    List<Log> map(List<LogParameterDTO> filter);
-//    @Named("optionalWrapper")
-//    default <T> T optionalWrapper(Optional<T> optional) {
-//        return optional.orElse(null);
-//    }
+    Log map(LogFilterDTO filter);
+    List<Log> map(List<LogFilterDTO> filter);
 }
