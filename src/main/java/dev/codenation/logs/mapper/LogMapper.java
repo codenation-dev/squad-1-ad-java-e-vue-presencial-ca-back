@@ -1,8 +1,10 @@
 package dev.codenation.logs.mapper;
 
 import dev.codenation.logs.domain.entity.Log;
-import dev.codenation.logs.dto.request.LogFilterDTO;
+import dev.codenation.logs.dto.request.LogParameterDTO;
 import org.mapstruct.*;
+
+import java.util.List;
 
 @Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE )
 public interface LogMapper {
@@ -20,5 +22,10 @@ public interface LogMapper {
             @Mapping(source = "reportedBy", target = "reportedBy.id")
     })
 
-    Log map(LogFilterDTO filter);
+    Log map(LogParameterDTO filter);
+    List<Log> map(List<LogParameterDTO> filter);
+//    @Named("optionalWrapper")
+//    default <T> T optionalWrapper(Optional<T> optional) {
+//        return optional.orElse(null);
+//    }
 }
