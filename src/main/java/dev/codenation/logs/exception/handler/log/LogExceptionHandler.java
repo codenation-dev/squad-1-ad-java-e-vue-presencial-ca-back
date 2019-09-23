@@ -11,7 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 @Order(Ordered.HIGHEST_PRECEDENCE)
-@Controller
+@ControllerAdvice
 public class LogExceptionHandler extends AbstractExceptionHandler {
 
     private LogNotFoundMessage logNotFoundMessage = new LogNotFoundMessage();
