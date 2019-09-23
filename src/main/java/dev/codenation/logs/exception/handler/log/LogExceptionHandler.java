@@ -1,8 +1,8 @@
 package dev.codenation.logs.exception.handler.log;
 
 import dev.codenation.logs.exception.handler.AbstractExceptionHandler;
-import dev.codenation.logs.exception.message.log.LogCouldNotBeArchivedMessage;
-import dev.codenation.logs.exception.message.log.LogNotFoundMessage;
+import dev.codenation.logs.exception.message.log.LogCouldNotBeArchivedException;
+import dev.codenation.logs.exception.message.log.LogNotFoundException;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
@@ -14,18 +14,18 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 @ControllerAdvice
 public class LogExceptionHandler extends AbstractExceptionHandler {
 
-    private LogNotFoundMessage logNotFoundMessage = new LogNotFoundMessage();
+    private LogNotFoundException logNotFoundException = new LogNotFoundException();
 
-    private LogCouldNotBeArchivedMessage logCouldNotBeArchivedMessage = new LogCouldNotBeArchivedMessage();
+    private LogCouldNotBeArchivedException logCouldNotBeArchivedException = new LogCouldNotBeArchivedException();
 
-    @ExceptionHandler(LogNotFoundMessage.class)
+    @ExceptionHandler(LogNotFoundException.class)
     public ResponseEntity<Object> logNotFoundException(){
-        return new ResponseEntity<>(logNotFoundMessage.getLocalizedMessage(),HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(logNotFoundException.getLocalizedMessage(),HttpStatus.NOT_FOUND);
     }
 
-    @ExceptionHandler(LogCouldNotBeArchivedMessage.class)
+    @ExceptionHandler(LogCouldNotBeArchivedException.class)
     public ResponseEntity<Object> logCannotBeArchived(){
-        return new ResponseEntity<>(logCouldNotBeArchivedMessage.getLocalizedMessage(),HttpStatus.UNAUTHORIZED);
+        return new ResponseEntity<>(logCouldNotBeArchivedException.getLocalizedMessage(),HttpStatus.UNAUTHORIZED);
     }
 
 

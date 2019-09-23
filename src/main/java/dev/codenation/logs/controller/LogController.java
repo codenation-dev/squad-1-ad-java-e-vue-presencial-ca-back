@@ -2,8 +2,8 @@ package dev.codenation.logs.controller;
 
 import dev.codenation.logs.domain.entity.Log;
 import dev.codenation.logs.domain.entity.User;
-import dev.codenation.logs.exception.message.log.LogCouldNotBeArchivedMessage;
-import dev.codenation.logs.exception.message.log.LogNotFoundMessage;
+import dev.codenation.logs.exception.message.log.LogCouldNotBeArchivedException;
+import dev.codenation.logs.exception.message.log.LogNotFoundException;
 import dev.codenation.logs.mapper.LogMapper;
 import dev.codenation.logs.parameter.LogArchiveParameter;
 import dev.codenation.logs.parameter.LogFilter;
@@ -32,13 +32,13 @@ public class LogController {
     private LogMapper mapper;
 
     @GetMapping("/{logId}")
-    public ResponseEntity<Log> findById(@PathVariable UUID logId) throws LogNotFoundMessage {
+    public ResponseEntity<Log> findById(@PathVariable UUID logId) throws LogNotFoundException {
         Optional<Log> log = logService.findById(logId);
 
         if (log.isPresent()){
             return ResponseEntity.ok(log.get());
         }else {
-            throw new LogNotFoundMessage();
+            throw new LogNotFoundException();
         }
     }
 
@@ -49,7 +49,7 @@ public class LogController {
     }
 
     @PatchMapping("/archive/{logId}")
-    public ResponseEntity<Log> archive(@PathVariable UUID logId, @Valid LogArchiveParameter filter) throws LogCouldNotBeArchivedMessage {
+    public ResponseEntity<Log> archive(@PathVariable UUID logId, @Valid LogArchiveParameter filter) throws LogCouldNotBeArchivedException {
 
         //Todo do Todo, mudar para classe service essa validação.
         //ToDo return a message warning of mismatch ids
@@ -69,7 +69,7 @@ public class LogController {
 
             return ResponseEntity.ok(aux);
         }else{
-            throw new LogCouldNotBeArchivedMessage();
+            throw new LogCouldNotBeArchivedException();
         }
     }
 
