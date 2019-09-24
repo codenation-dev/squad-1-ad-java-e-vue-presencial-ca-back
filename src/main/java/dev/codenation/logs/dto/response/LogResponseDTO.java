@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Data
-public class LogDTO {
+public class LogResponseDTO {
     private UUID id;
     private Integer hash;
     private LogDetail logDetail;

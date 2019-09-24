@@ -17,9 +17,12 @@ public abstract class AbstractService<R extends JpaRepository<T, ID>, T, ID> {
         return repository.findById(id);
     }
 
-    public Page<T> findAll(Example<T> example, Pageable pageable, Sort sort) {
-        pageable = PageRequest.of(pageable.getPageNumber(), pageable.getPageSize(), sort);
+    public Page<T> findAll(Example<T> example, Pageable pageable) {
         return repository.findAll(example, pageable);
+    }
+
+    public List<T> findAll(Example<T> example) {
+        return repository.findAll(example);
     }
 
     public void delete(T object) {

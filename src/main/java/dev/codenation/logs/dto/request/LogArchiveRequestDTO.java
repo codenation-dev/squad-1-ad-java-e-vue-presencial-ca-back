@@ -6,7 +6,7 @@ import javax.validation.constraints.NotNull;
 import java.util.UUID;
 
 @Data
-public class LogArchiveDTO {
+public class LogArchiveRequestDTO {
     @NotNull
     private UUID id;
     @NotNull

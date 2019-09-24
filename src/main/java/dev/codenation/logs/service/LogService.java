@@ -1,11 +1,14 @@
 package dev.codenation.logs.service;
 
 import dev.codenation.logs.domain.entity.Log;
-import dev.codenation.logs.dto.response.LogSumaryDTO;
 import dev.codenation.logs.repository.LogRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.*;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+
 
 import java.util.List;
 import java.util.UUID;
@@ -21,7 +24,7 @@ public class LogService extends AbstractService<LogRepository, Log, UUID> {
         this.repository = repository;
     }
 
-    public List<LogSumaryDTO> findAllGroupByHash(Log log, Pageable pageable, Sort sort) {
+    public List<Object> findAllGroupByHash(Log log, Pageable pageable, Sort sort) {
         pageable = PageRequest.of(pageable.getPageNumber(), pageable.getPageSize(), sort);
 
         Example<Log> logExample = Example.of(log);

@@ -12,7 +12,7 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class LogSumaryDTO {
+public class LogSumaryResponseDTO {
     private String total;
     private Log log;
 }

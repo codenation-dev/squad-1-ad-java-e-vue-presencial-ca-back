@@ -7,15 +7,26 @@ import lombok.Data;
 import java.util.UUID;
 
 @Data
-public class LogParameterDTO {
+public class LogFilterRequestDTO {
+
     private UUID id;
+
     private String hash;
+
     private String message;
+
     private String details;
+
     private Severity severity;
+
     private Environment environment;
+
     private String origin;
+
     private Boolean archived;
+
     private UUID archivedBy;
+
     private UUID reportedBy;
+
 }

@@ -2,8 +2,8 @@ package dev.codenation.logs.controller;
 
 import dev.codenation.logs.domain.entity.Log;
 import dev.codenation.logs.domain.entity.User;
-import dev.codenation.logs.dto.request.LogArchiveDTO;
-import dev.codenation.logs.dto.request.LogFilterDTO;
+import dev.codenation.logs.dto.request.LogArchiveRequestDTO;
+import dev.codenation.logs.dto.request.LogFilterRequestDTO;
 import dev.codenation.logs.exception.message.log.LogCouldNotBeArchivedMessage;
 import dev.codenation.logs.exception.message.log.LogNotFoundMessage;
 import dev.codenation.logs.mapper.LogMapper;
@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -30,24 +29,18 @@ public class LogController {
     private LogMapper mapper;
 
     @GetMapping("/{logId}")
-    public ResponseEntity<Log> findById(@PathVariable UUID logId) throws LogNotFoundMessage {
-        Optional<Log> log = logService.findById(logId);
-
-        if (log.isPresent()){
-            return ResponseEntity.ok(log.get());
-        }else {
-            throw new LogNotFoundMessage();
-        }
+    public Log findById(@PathVariable UUID logId) throws LogNotFoundMessage {
+        return logService.findById(logId).orElseThrow(LogNotFoundMessage::new);
     }
 
     @GetMapping
-    public Page<Log> findAll(LogFilterDTO filter, Pageable page, @SortDefault(sort = "createdAt", direction = Sort.Direction.DESC) Sort sort) {
+    public Page<Log> findAll(LogFilterRequestDTO filter, Pageable page, @SortDefault(sort = "createdAt", direction = Sort.Direction.DESC) Sort sort) {
         Example<Log> logExample = Example.of(mapper.map(filter), ExampleMatcher.matchingAll().withIgnoreCase());
-        return logService.findAll(logExample, page, sort);
+        return logService.findAll(logExample, page);
     }
 
     @PatchMapping("/archive/{logId}")
-    public ResponseEntity<Log> archive(@PathVariable UUID logId, @Valid LogArchiveDTO filter) throws LogCouldNotBeArchivedMessage {
+    public ResponseEntity<Log> archive(@PathVariable UUID logId, @Valid LogArchiveRequestDTO filter) throws LogCouldNotBeArchivedMessage {
 
         //Todo do Todo, mudar para classe service essa validação.
         //ToDo return a message warning of mismatch ids
@@ -72,13 +65,12 @@ public class LogController {
     }
 
     @DeleteMapping("/{logId}")
-    public ResponseEntity<Log> archive(@PathVariable UUID logId) {
+    public Log delete(@PathVariable UUID logId) throws LogNotFoundMessage {
         Optional<Log> log = logService.findById(logId);
         if (log.isPresent()) {
             logService.delete(log.get());
-            return ResponseEntity.ok(log.get());
         }
-        return ResponseEntity.notFound().build(); //Do a review in status and message returning
+        return log.orElseThrow(LogNotFoundMessage::new);
     }
 
 }

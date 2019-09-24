@@ -3,7 +3,6 @@ package dev.codenation.logs.repository;
 import dev.codenation.logs.domain.entity.Log;
 import dev.codenation.logs.domain.enums.Environment;
 import dev.codenation.logs.domain.enums.Severity;
-import dev.codenation.logs.dto.response.LogSumaryDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -38,12 +37,12 @@ public interface LogRepository extends JpaRepository<Log, UUID> {
             "\n-- #pageable\n",
             nativeQuery = true,
             countQuery = "select count(hash) from logs")
-    Page<LogSumaryDTO> findAllSumarized(@Param("hash") Integer hash,
-                                        @Param("message") String message,
-                                        @Param("details") String details,
-                                        @Param("severity") Severity severity,
-                                        @Param("environment") Environment environment,
-                                        @Param("origin") String origin,
-                                        @Param("reportedBy") UUID reportedBy,
-                                        Pageable pageable);
+    Page<Object> findAllSumarized(@Param("hash") Integer hash,
+                                  @Param("message") String message,
+                                  @Param("details") String details,
+                                  @Param("severity") Severity severity,
+                                  @Param("environment") Environment environment,
+                                  @Param("origin") String origin,
+                                  @Param("reportedBy") UUID reportedBy,
+                                  Pageable pageable);
 }

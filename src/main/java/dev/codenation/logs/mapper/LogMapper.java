@@ -1,9 +1,11 @@
 package dev.codenation.logs.mapper;
 
 import dev.codenation.logs.domain.entity.Log;
-import dev.codenation.logs.dto.request.LogFilterDTO;
-import dev.codenation.logs.dto.request.LogParameterDTO;
-import org.mapstruct.*;
+import dev.codenation.logs.dto.request.LogFilterRequestDTO;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.Mappings;
+import org.mapstruct.ReportingPolicy;
 
 import java.util.List;
 
@@ -23,6 +25,6 @@ public interface LogMapper {
             @Mapping(source = "reportedBy", target = "reportedBy.id")
     })
 
-    Log map(LogFilterDTO filter);
-    List<Log> map(List<LogFilterDTO> filter);
+    Log map(LogFilterRequestDTO filter);
+    List<Log> map(List<LogFilterRequestDTO> filter);
 }
