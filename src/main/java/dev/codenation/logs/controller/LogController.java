@@ -2,12 +2,12 @@ package dev.codenation.logs.controller;
 
 import dev.codenation.logs.domain.entity.Log;
 import dev.codenation.logs.domain.entity.User;
+import dev.codenation.logs.dto.LogFilterDTO;
 import dev.codenation.logs.exception.message.log.LogCouldNotBeArchivedException;
 import dev.codenation.logs.exception.message.log.LogMismatchIdsException;
 import dev.codenation.logs.exception.message.log.LogNotFoundException;
 import dev.codenation.logs.mapper.LogMapper;
-import dev.codenation.logs.parameter.LogArchiveParameter;
-import dev.codenation.logs.parameter.LogFilter;
+import dev.codenation.logs.dto.LogArchiveDTO;
 import dev.codenation.logs.service.LogService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,13 +38,13 @@ public class LogController {
     }
 
     @GetMapping
-    public List<Log> findAll(LogFilter filter, @RequestParam(required = false) Sort sort) {
+    public List<Log> findAll(LogFilterDTO filter, @RequestParam(required = false) Sort sort) {
         Example<Log> logExample = Example.of(mapper.map(filter));
-        return logService.findAll(logExample, sort);
+        return (List<Log>) logService.findAll(logExample, sort);
     }
 
     @PatchMapping("/archive/{logId}")
-    public ResponseEntity<Log> archive(@PathVariable UUID logId, @Valid LogArchiveParameter filter) throws LogCouldNotBeArchivedException, LogMismatchIdsException {
+    public ResponseEntity<Log> archive(@PathVariable UUID logId, @Valid LogArchiveDTO filter) throws LogCouldNotBeArchivedException, LogMismatchIdsException {
 
         if (logId != filter.getId()){
             throw new LogMismatchIdsException();

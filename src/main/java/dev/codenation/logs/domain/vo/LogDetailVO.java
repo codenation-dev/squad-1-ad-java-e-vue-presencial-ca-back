@@ -1,6 +1,6 @@
-package dev.codenation.logs.domain.valueObject;
+package dev.codenation.logs.domain.vo;
 
-import dev.codenation.logs.domain.enums.Severity;
+import dev.codenation.logs.domain.enums.SeverityEnum;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,7 +17,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @Embeddable
-public class LogDetail implements Serializable {
+public class LogDetailVO implements Serializable {
 
     @NotNull
     private String message;
@@ -27,6 +27,6 @@ public class LogDetail implements Serializable {
 
     @NotNull
     @Enumerated(value = EnumType.STRING)
-    Severity severity;
+    SeverityEnum severityENUM;
 
 }

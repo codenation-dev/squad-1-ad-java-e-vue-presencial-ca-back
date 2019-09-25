@@ -1,11 +1,11 @@
-package dev.codenation.logs.parameter;
+package dev.codenation.logs.dto;
 
 import lombok.Data;
 
 import java.util.UUID;
 
 @Data
-public class UserFindFilter {
+public class UserFindFilterDTO {
 
     private UUID id;
 
