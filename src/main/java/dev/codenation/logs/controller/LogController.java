@@ -46,8 +46,6 @@ public class LogController {
     @PatchMapping("/archive/{logId}")
     public ResponseEntity<Log> archive(@PathVariable UUID logId, @Valid LogArchiveParameter filter) throws LogCouldNotBeArchivedException, LogMismatchIdsException {
 
-        //Todo do Todo, mudar para classe service essa validação.
-        //ToDo return a message warning of mismatch ids
         if (logId != filter.getId()){
             throw new LogMismatchIdsException();
         }
