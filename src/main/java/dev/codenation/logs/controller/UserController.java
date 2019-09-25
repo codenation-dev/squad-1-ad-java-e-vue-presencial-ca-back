@@ -2,6 +2,7 @@ package dev.codenation.logs.controller;
 
 import dev.codenation.logs.domain.entity.User;
 import dev.codenation.logs.dto.request.UserFilterRequestDTO;
+import dev.codenation.logs.dto.request.UserRequestDTO;
 import dev.codenation.logs.mapper.UserMapper;
 import dev.codenation.logs.service.UserService;
 import lombok.AllArgsConstructor;
@@ -10,7 +11,6 @@ import org.springframework.data.domain.Example;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.util.List;
 import java.util.UUID;
 
@@ -27,8 +27,8 @@ public class UserController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void create(@Valid @RequestBody User user) {
-        service.save(user);
+    public User create(@RequestBody UserRequestDTO user) {
+        return service.save(mapper.map(user));
     }
 
     @GetMapping("/{id}")
@@ -46,7 +46,7 @@ public class UserController {
 
     @PatchMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public void patch(@PathVariable UUID id, @Valid User user) {
-        service.save(user);
+    public void patch(@PathVariable UUID id, UserRequestDTO user) {
+        service.save( mapper.map(user));
     }
 }
