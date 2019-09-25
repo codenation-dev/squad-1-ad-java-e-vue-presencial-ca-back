@@ -40,7 +40,7 @@ public class LogController {
     @GetMapping
     public List<Log> findAll(LogFilterDTO filter, @RequestParam(required = false) Sort sort) {
         Example<Log> logExample = Example.of(mapper.map(filter));
-        return (List<Log>) logService.findAll(logExample, sort);
+        return logService.findAll(logExample, sort);
     }
 
     @PatchMapping("/archive/{logId}")
