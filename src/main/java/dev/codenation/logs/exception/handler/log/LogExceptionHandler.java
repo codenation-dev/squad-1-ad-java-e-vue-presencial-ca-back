@@ -31,7 +31,7 @@ public class LogExceptionHandler extends AbstractExceptionHandler {
         return new ResponseEntity<>(logCouldNotBeArchivedException.getLocalizedMessage(),HttpStatus.UNAUTHORIZED);
     }
 
-    @ExceptionHandler(LogCouldNotBeArchivedException.class)
+    @ExceptionHandler(LogMismatchIdsException.class)
     public ResponseEntity<Object> logIdMismatchException(){
         return new ResponseEntity<>(logMismatchIdsException.getLocalizedMessage(),HttpStatus.BAD_REQUEST);
     }

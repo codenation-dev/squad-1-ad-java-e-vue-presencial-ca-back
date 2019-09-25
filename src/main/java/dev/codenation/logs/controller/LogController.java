@@ -33,14 +33,8 @@ public class LogController {
     private LogMapper mapper;
 
     @GetMapping("/{logId}")
-    public ResponseEntity<Log> findById(@PathVariable UUID logId) throws LogNotFoundException {
-        return logService.findById(logId).orElseThrow(LogNotFoundException::new )
-
-        if (log.isPresent()){
-            return ResponseEntity.ok(log.get());
-        }else {
-            throw new LogNotFoundException();
-        }
+    public Log findById(@PathVariable UUID logId) throws LogNotFoundException {
+        return logService.findById(logId).orElseThrow(LogNotFoundException::new );
     }
 
     @GetMapping
