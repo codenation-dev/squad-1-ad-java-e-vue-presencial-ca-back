@@ -26,7 +26,7 @@ public class UserController {
 
     @GetMapping
     public List<UserFindFilterDTO> getUsers(){
-        return service.findAllDTO(null, Sort.unsorted());
+        return service.findAllDTO();
     }
 
 }

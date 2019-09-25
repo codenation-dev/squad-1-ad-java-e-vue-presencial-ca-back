@@ -1,6 +1,6 @@
 package dev.codenation.logs.service;
 
-import dev.codenation.logs.domain.entity.Log;
+import dev.codenation.logs.dto.UserFindFilterDTO;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.*;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -30,4 +30,6 @@ public abstract class AbstractService<R extends JpaRepository<T, ID>, T, ID> {
     public T save(T object) {
         return (T) repository.save(object);
     }
+
+    public abstract List<?> findAllDTO();
 }

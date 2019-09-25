@@ -27,6 +27,6 @@ public class LogDetailVO implements Serializable {
 
     @NotNull
     @Enumerated(value = EnumType.STRING)
-    SeverityEnum severityENUM;
+    SeverityEnum severityEnum;
 
 }

@@ -17,9 +17,9 @@ public class LogFilterDTO {
 
     private String details;
 
-    private SeverityEnum severityENUM;
+    private SeverityEnum severityEnum;
 
-    private EnvironmentEnum environmentENUM;
+    private EnvironmentEnum environmentEnum;
 
     private String origin;
 

@@ -1,8 +1,8 @@
 package dev.codenation.logs.service;
 
 import dev.codenation.logs.domain.entity.User;
-import dev.codenation.logs.mapper.UserMapper;
 import dev.codenation.logs.dto.UserFindFilterDTO;
+import dev.codenation.logs.mapper.UserMapper;
 import dev.codenation.logs.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
@@ -46,7 +46,7 @@ public class UserService extends AbstractService<UserRepository, User, UUID>{
         return super.findAll(example, sort);
     }
 
-    public List<UserFindFilterDTO> findAllDTO(Example<User> example, Sort sort){
-        return userMapper.map(repository.findAll(example,sort));
+    public List<UserFindFilterDTO> findAllDTO() {
+        return userMapper.map(repository.findAll());
     }
 }

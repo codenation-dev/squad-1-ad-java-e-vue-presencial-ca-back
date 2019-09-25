@@ -22,7 +22,7 @@ public class OriginVO implements Serializable {
 
     @NotNull
     @Enumerated(value = EnumType.STRING)
-    EnvironmentEnum environmentENUM;
+    EnvironmentEnum environmentEnum;
 
     @NotNull
     @Size(max = 100)

@@ -32,6 +32,11 @@ public class LogService extends AbstractService<LogRepository, Log, UUID>{
     }
 
     @Override
+    public List<?> findAllDTO() {
+        return null;
+    }
+
+    @Override
     public Page<Log> findAll(Example<Log> example, Pageable pageable, Sort sort) {
         return super.findAll(example, pageable, sort);
     }
