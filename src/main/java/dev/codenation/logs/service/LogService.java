@@ -3,7 +3,7 @@ package dev.codenation.logs.service;
 import dev.codenation.logs.domain.entity.Log;
 import dev.codenation.logs.dto.request.LogArchiveRequestDTO;
 import dev.codenation.logs.dto.request.LogFilterRequestDTO;
-import dev.codenation.logs.exception.message.log.LogNotFoundMessage;
+import dev.codenation.logs.exception.message.log.LogNotFoundException;
 import dev.codenation.logs.mapper.LogMapper;
 import dev.codenation.logs.repository.LogRepository;
 import dev.codenation.logs.repository.UserRepository;
@@ -57,8 +57,8 @@ public class LogService extends AbstractService<LogRepository, Log, UUID> {
         return repository.findAll(logExample,pageable);
     }
 
-    public Log archiveLogByIdOrElseThrowError(UUID logId, LogArchiveRequestDTO filter) throws LogNotFoundMessage {
-        Log log = repository.findById(logId).orElseThrow(LogNotFoundMessage::new);
+    public Log archiveLogByIdOrElseThrowError(UUID logId, LogArchiveRequestDTO filter) throws LogNotFoundException {
+        Log log = repository.findById(logId).orElseThrow(LogNotFoundException::new);
         setArchivedLogAndSave(filter, log);
         return log;
     }
@@ -71,8 +71,8 @@ public class LogService extends AbstractService<LogRepository, Log, UUID> {
         repository.saveAndFlush(log);
     }
 
-    public void deleteOrElseThrowError(UUID logId) throws LogNotFoundMessage {
-        Log log = repository.findById(logId).orElseThrow(LogNotFoundMessage::new);
+    public void deleteOrElseThrowError(UUID logId) throws LogNotFoundException {
+        Log log = repository.findById(logId).orElseThrow(LogNotFoundException::new);
         repository.delete(log);
     }
 }

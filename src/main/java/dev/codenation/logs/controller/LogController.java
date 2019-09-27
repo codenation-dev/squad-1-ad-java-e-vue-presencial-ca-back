@@ -3,7 +3,6 @@ package dev.codenation.logs.controller;
 import dev.codenation.logs.domain.entity.Log;
 import dev.codenation.logs.dto.request.LogArchiveRequestDTO;
 import dev.codenation.logs.dto.request.LogFilterRequestDTO;
-import dev.codenation.logs.exception.message.log.LogCouldNotBeArchivedException;
 import dev.codenation.logs.exception.message.log.LogNotFoundException;
 import dev.codenation.logs.service.LogService;
 import lombok.AllArgsConstructor;
