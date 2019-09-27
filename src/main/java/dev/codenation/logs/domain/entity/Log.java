@@ -27,7 +27,7 @@ import java.util.UUID;
 public class Log {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private UUID id;
 
     @NotNull

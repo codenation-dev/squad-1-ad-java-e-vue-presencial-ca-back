@@ -1,12 +1,14 @@
 package dev.codenation.logs.domain.vo;
 
 import dev.codenation.logs.domain.entity.User;
+import org.springframework.security.core.AuthenticatedPrincipal;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+
 import java.util.Collection;
 
-public class UserAuthVO implements UserDetails {
+public class UserAuthVO implements AuthenticatedPrincipal,UserDetails {
 
     private String login;
 
@@ -50,5 +52,10 @@ public class UserAuthVO implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    @Override
+    public String getName() {
+        return null;
     }
 }
