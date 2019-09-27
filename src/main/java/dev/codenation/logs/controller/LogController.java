@@ -34,12 +34,12 @@ public class LogController {
 
 
     @PatchMapping("/archive/{logId}")
-    public Log archive(@PathVariable UUID logId, @Valid LogArchiveRequestDTO filter) {
+    public Log archive(@PathVariable UUID logId, @Valid LogArchiveRequestDTO filter) throws LogNotFoundException {
         return logService.archiveLogByIdOrElseThrowError(logId,filter);
     }
 
     @DeleteMapping("/{logId}")
-    public HttpStatus delete(@PathVariable UUID logId) {
+    public HttpStatus delete(@PathVariable UUID logId) throws LogNotFoundException {
         logService.deleteOrElseThrowError(logId);
         return HttpStatus.OK;
     }
