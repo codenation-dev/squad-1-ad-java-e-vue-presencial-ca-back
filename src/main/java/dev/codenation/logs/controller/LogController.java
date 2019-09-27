@@ -3,8 +3,8 @@ package dev.codenation.logs.controller;
 import dev.codenation.logs.domain.entity.Log;
 import dev.codenation.logs.dto.request.LogArchiveRequestDTO;
 import dev.codenation.logs.dto.request.LogFilterRequestDTO;
-import dev.codenation.logs.exception.message.log.LogCouldNotBeArchivedMessage;
-import dev.codenation.logs.exception.message.log.LogNotFoundMessage;
+import dev.codenation.logs.exception.message.log.LogCouldNotBeArchivedException;
+import dev.codenation.logs.exception.message.log.LogNotFoundException;
 import dev.codenation.logs.service.LogService;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -23,8 +23,9 @@ public class LogController {
     private LogService logService;
 
     @GetMapping("/{logId}")
-    public Log findById(@PathVariable UUID logId) throws LogNotFoundMessage {
-        return logService.findById(logId).orElseThrow(LogNotFoundMessage::new);
+
+    public Log findById(@PathVariable UUID logId) throws LogNotFoundException {
+        return logService.findById(logId).orElseThrow(LogNotFoundException::new );
     }
 
     @GetMapping
@@ -34,12 +35,12 @@ public class LogController {
 
 
     @PatchMapping("/archive/{logId}")
-    public Log archive(@PathVariable UUID logId, @Valid LogArchiveRequestDTO filter) throws LogCouldNotBeArchivedMessage, LogNotFoundMessage {
+    public Log archive(@PathVariable UUID logId, @Valid LogArchiveRequestDTO filter) {
         return logService.archiveLogByIdOrElseThrowError(logId,filter);
     }
 
     @DeleteMapping("/{logId}")
-    public HttpStatus delete(@PathVariable UUID logId) throws LogNotFoundMessage {
+    public HttpStatus delete(@PathVariable UUID logId) {
         logService.deleteOrElseThrowError(logId);
         return HttpStatus.OK;
     }

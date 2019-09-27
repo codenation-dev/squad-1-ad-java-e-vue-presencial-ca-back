@@ -5,9 +5,9 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public abstract class AbstractExceptionMessage extends Exception {
+public abstract class AbstractException extends Exception {
 
-    public AbstractExceptionMessage(String message) {
+    public AbstractException(String message) {
         super(message);
     }
 }
