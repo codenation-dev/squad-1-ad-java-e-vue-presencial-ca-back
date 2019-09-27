@@ -7,11 +7,10 @@ import dev.codenation.logs.mapper.UserMapper;
 import dev.codenation.logs.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Example;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.UUID;
 
 @AllArgsConstructor
@@ -39,9 +38,9 @@ public class UserController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<User> findAll(UserFilterRequestDTO filter) {
-        Example<User> userExample = Example.of(mapper.map(filter));
-        return service.findAll(userExample);
+    public Page<User> findAll(UserFilterRequestDTO filter) {
+
+        return service.findAll(filter);
     }
 
     @PatchMapping("/{id}")
