@@ -2,10 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="08890953-faf0-4d67-9467-b90b191a4ad3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/controller/LogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/controller/LogController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/service/LogService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/service/LogService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../src/test/java/dev/codenation/logs/service/UserServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/libraries/Gradle__com_google_guava_guava_20_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/libraries/Gradle__com_google_guava_guava_20_0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/libraries/Gradle__io_springfox_springfox_core_2_9_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/libraries/Gradle__io_springfox_springfox_core_2_9_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/libraries/Gradle__io_springfox_springfox_schema_2_9_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/libraries/Gradle__io_springfox_springfox_schema_2_9_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/libraries/Gradle__io_springfox_springfox_spi_2_9_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/libraries/Gradle__io_springfox_springfox_spi_2_9_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/libraries/Gradle__io_springfox_springfox_spring_web_2_9_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/libraries/Gradle__io_springfox_springfox_spring_web_2_9_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/libraries/Gradle__io_springfox_springfox_swagger2_2_9_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/libraries/Gradle__io_springfox_springfox_swagger2_2_9_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/libraries/Gradle__io_springfox_springfox_swagger_common_2_9_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/libraries/Gradle__io_springfox_springfox_swagger_common_2_9_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/libraries/Gradle__io_springfox_springfox_swagger_ui_2_9_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/libraries/Gradle__io_springfox_springfox_swagger_ui_2_9_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/libraries/Gradle__io_swagger_swagger_annotations_1_5_20.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/libraries/Gradle__io_swagger_swagger_annotations_1_5_20.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/libraries/Gradle__io_swagger_swagger_models_1_5_20.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/libraries/Gradle__io_swagger_swagger_models_1_5_20.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/libraries/Gradle__org_springframework_plugin_spring_plugin_core_1_2_0_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/libraries/Gradle__org_springframework_plugin_spring_plugin_core_1_2_0_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/libraries/Gradle__org_springframework_plugin_spring_plugin_metadata_1_2_0_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/libraries/Gradle__org_springframework_plugin_spring_plugin_metadata_1_2_0_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/modules/log-repo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/modules/log-repo.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/modules/log-repo.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/modules/log-repo.main.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/modules/log-repo.test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/modules/log-repo.test.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/sqldialects.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/test/java/dev/codenation/logs/service/LogServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../src/test/java/dev/codenation/logs/service/LogServiceTest.java" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,6 +33,9 @@
   </component>
   <component name="CodeInsightWorkspaceSettings">
     <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -79,6 +102,9 @@
     <select />
   </component>
   <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$/..">
+      <ProjectState />
+    </projectState>
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
@@ -149,7 +175,7 @@
         <entry key="$PROJECT_DIR$" value="qa" />
       </map>
     </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="IgnoredFileRootStore">
@@ -159,9 +185,17 @@
       </set>
     </option>
   </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
   <component name="ProjectId" id="1QfRoJrNlBZlYE3pAze5zUPS0zD" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
@@ -185,6 +219,12 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.includeInheritedMembers" value="true" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../DesafioTreasy" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
@@ -239,27 +279,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.LogRepoApplication (1)">
-    <configuration name="LogExceptionHandlerTest.hereWeWillGetErrorNOTFOUND" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;dev.codenation.logs.exception.handler.LogExceptionHandlerTest.hereWeWillGetErrorNOTFOUND&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":cleanTest" />
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="JUnit.LogServiceTest">
     <configuration name="squad-one-backend [buildDependents]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -297,6 +317,21 @@
       </ExternalSystemSettings>
       <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
       <method v="2" />
+    </configuration>
+    <configuration name="LogServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="log-repo.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dev.codenation.logs.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="dev.codenation.logs.service" />
+      <option name="MAIN_CLASS_NAME" value="dev.codenation.logs.service.LogServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
       <option name="VM_PARAMETERS" />
@@ -387,33 +422,19 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.LogServiceTest" />
         <item itemvalue="Spring Boot.LogRepoApplication (1)" />
         <item itemvalue="Gradle.squad-one-backend [dependencies]" />
         <item itemvalue="Spring Boot.LogRepoApplication (2)" />
         <item itemvalue="Gradle.squad-one-backend [buildDependents]" />
-        <item itemvalue="Gradle.LogExceptionHandlerTest.hereWeWillGetErrorNOTFOUND" />
       </list>
     </recent_temporary>
   </component>
   <component name="ServiceViewManager">
-    <option name="allServicesViewState">
-      <serviceView>
-        <option name="contentProportion" value="0.19568567" />
-        <treeState>
-          <expand>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@c817a84f" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-            </path>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@c817a84f" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@d19ba094" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-            </path>
-          </expand>
-          <select />
-        </treeState>
-      </serviceView>
+    <option name="viewStates">
+      <list>
+        <serviceView />
+      </list>
     </option>
   </component>
   <component name="SvnConfiguration">
@@ -456,6 +477,7 @@
       <workItem from="1569542304216" duration="4657000" />
       <workItem from="1569552582048" duration="8434000" />
       <workItem from="1569601433445" duration="450000" />
+      <workItem from="1569682768594" duration="2561000" />
     </task>
     <task id="LOCAL-00001" summary="ci(changed the ci configuration of project)">
       <created>1568225801211</created>
@@ -561,5 +583,47 @@
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="311" y="58" width="800" height="677" key="#Project_Structure" timestamp="1569682888709">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="311" y="58" width="800" height="677" key="#Project_Structure/67.27.1299.741@67.27.1299.741" timestamp="1569682888709" />
+    <state width="1253" height="219" key="GridCell.Tab.0.bottom" timestamp="1569688469488">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state width="1253" height="219" key="GridCell.Tab.0.bottom/67.27.1299.741@67.27.1299.741" timestamp="1569688469488" />
+    <state width="1253" height="219" key="GridCell.Tab.0.center" timestamp="1569688469486">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state width="1253" height="219" key="GridCell.Tab.0.center/67.27.1299.741@67.27.1299.741" timestamp="1569688469486" />
+    <state width="1253" height="219" key="GridCell.Tab.0.left" timestamp="1569688469485">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state width="1253" height="219" key="GridCell.Tab.0.left/67.27.1299.741@67.27.1299.741" timestamp="1569688469485" />
+    <state width="1253" height="219" key="GridCell.Tab.0.right" timestamp="1569688469487">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state width="1253" height="219" key="GridCell.Tab.0.right/67.27.1299.741@67.27.1299.741" timestamp="1569688469487" />
+    <state width="1253" height="219" key="GridCell.Tab.1.bottom" timestamp="1569688469491">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state width="1253" height="219" key="GridCell.Tab.1.bottom/67.27.1299.741@67.27.1299.741" timestamp="1569688469491" />
+    <state width="1253" height="219" key="GridCell.Tab.1.center" timestamp="1569688469490">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state width="1253" height="219" key="GridCell.Tab.1.center/67.27.1299.741@67.27.1299.741" timestamp="1569688469490" />
+    <state width="1253" height="219" key="GridCell.Tab.1.left" timestamp="1569688469489">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state width="1253" height="219" key="GridCell.Tab.1.left/67.27.1299.741@67.27.1299.741" timestamp="1569688469489" />
+    <state width="1253" height="219" key="GridCell.Tab.1.right" timestamp="1569688469491">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state width="1253" height="219" key="GridCell.Tab.1.right/67.27.1299.741@67.27.1299.741" timestamp="1569688469491" />
+    <state x="372" y="224" key="com.intellij.ide.util.TipDialog" timestamp="1569682767965">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="372" y="224" key="com.intellij.ide.util.TipDialog/67.27.1299.741@67.27.1299.741" timestamp="1569682767965" />
   </component>
 </project>
