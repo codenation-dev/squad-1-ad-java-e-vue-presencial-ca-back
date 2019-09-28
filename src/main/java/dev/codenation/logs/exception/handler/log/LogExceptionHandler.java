@@ -1,32 +1,41 @@
 package dev.codenation.logs.exception.handler.log;
 
 import dev.codenation.logs.exception.handler.AbstractExceptionHandler;
-import dev.codenation.logs.exception.message.log.LogCouldNotBeArchivedMessage;
-import dev.codenation.logs.exception.message.log.LogNotFoundMessage;
+import dev.codenation.logs.exception.message.log.LogCouldNotBeArchivedException;
+import dev.codenation.logs.exception.message.log.LogMismatchIdsException;
+import dev.codenation.logs.exception.message.log.LogNotFoundException;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 @Order(Ordered.HIGHEST_PRECEDENCE)
-@Controller
+@ControllerAdvice
 public class LogExceptionHandler extends AbstractExceptionHandler {
 
-    private LogNotFoundMessage logNotFoundMessage = new LogNotFoundMessage();
+    private LogNotFoundException logNotFoundException = new LogNotFoundException();
 
-    private LogCouldNotBeArchivedMessage logCouldNotBeArchivedMessage = new LogCouldNotBeArchivedMessage();
+    private LogCouldNotBeArchivedException logCouldNotBeArchivedException = new LogCouldNotBeArchivedException();
 
-    @ExceptionHandler(LogNotFoundMessage.class)
+    private LogMismatchIdsException logMismatchIdsException = new LogMismatchIdsException();
+
+    @ExceptionHandler(LogNotFoundException.class)
     public ResponseEntity<Object> logNotFoundException(){
-        return new ResponseEntity<>(logNotFoundMessage.getLocalizedMessage(),HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(logNotFoundException.getLocalizedMessage(),HttpStatus.NOT_FOUND);
     }
 
-    @ExceptionHandler(LogCouldNotBeArchivedMessage.class)
-    public ResponseEntity<Object> logCannotBeArchived(){
-        return new ResponseEntity<>(logCouldNotBeArchivedMessage.getLocalizedMessage(),HttpStatus.UNAUTHORIZED);
+    @ExceptionHandler(LogCouldNotBeArchivedException.class)
+    public ResponseEntity<Object> logCannotBeArchivedException(){
+        return new ResponseEntity<>(logCouldNotBeArchivedException.getLocalizedMessage(),HttpStatus.UNAUTHORIZED);
     }
+
+    @ExceptionHandler(LogMismatchIdsException.class)
+    public ResponseEntity<Object> logIdMismatchException(){
+        return new ResponseEntity<>(logMismatchIdsException.getLocalizedMessage(),HttpStatus.BAD_REQUEST);
+    }
+
 
 
 
