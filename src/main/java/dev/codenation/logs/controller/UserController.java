@@ -46,7 +46,7 @@ public class UserController {
 
     @PatchMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public void patch(@PathVariable UUID id, UserRequestDTO user) {
-        service.save( mapper.map(user));
+    public User patch(@PathVariable UUID id, UserRequestDTO user) {
+        return service.save( mapper.map(user));
     }
 }
