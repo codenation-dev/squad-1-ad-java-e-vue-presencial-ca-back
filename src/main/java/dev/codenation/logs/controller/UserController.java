@@ -39,13 +39,15 @@ public class UserController {
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public Page<User> findAll(UserFilterRequestDTO filter) {
-
         return service.findAll(filter);
     }
 
     @PatchMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public User patch(@PathVariable UUID id, UserRequestDTO user) {
-        return service.save( mapper.map(user));
+    public User patch(@PathVariable UUID id, @RequestBody UserRequestDTO user) throws Exception {
+        if(id.equals(user.getId())){
+            throw new Exception(); //ToDo criar exceção
+        }
+        return service.save(mapper.map(user));
     }
 }

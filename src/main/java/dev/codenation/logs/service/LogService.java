@@ -3,6 +3,7 @@ package dev.codenation.logs.service;
 import dev.codenation.logs.domain.entity.Log;
 import dev.codenation.logs.dto.request.LogArchiveRequestDTO;
 import dev.codenation.logs.dto.request.LogFilterRequestDTO;
+import dev.codenation.logs.dto.response.LogSumaryResponseDTO;
 import dev.codenation.logs.mapper.LogMapper;
 import dev.codenation.logs.repository.LogRepository;
 import dev.codenation.logs.repository.UserRepository;
@@ -33,14 +34,11 @@ public class LogService extends AbstractService<LogRepository, Log, UUID> {
         this.repository = repository;
     }
 
-    public List<Object> findAllGroupByHash(Log log, Pageable pageable, Sort sort) {
+    public Page<LogSumaryResponseDTO> findAllGroupByHash(Log log, Pageable pageable, Sort sort) {
+
         pageable = PageRequest.of(pageable.getPageNumber(), pageable.getPageSize(), sort);
 
-        Example<Log> logExample = Example.of(log);
-
-        repository.findAll(logExample, pageable);
-
-        repository.findAllSumarized(log.getHash(),
+        return repository.findAllSumarized(log.getHash(),
                 log.getLogDetail().getMessage(),
                 log.getLogDetail().getDetails(),
                 log.getLogDetail().getSeverity(),
@@ -48,8 +46,6 @@ public class LogService extends AbstractService<LogRepository, Log, UUID> {
                 log.getOrigin().getOrigin(),
                 log.getReportedBy().getId(),
                 pageable);
-
-        return null;
     }
 
     public Page<Log> findAll(LogFilterRequestDTO filter, Pageable pageable) {
@@ -58,24 +54,19 @@ public class LogService extends AbstractService<LogRepository, Log, UUID> {
     }
 
     public Optional<Log> archiveLogById(UUID logId, LogArchiveRequestDTO filter) {
-        Optional<Log> log = repository.findById(logId);
-        if (log.isPresent()) {
-            setArchivedLogAndSave(filter, log.get());
-        }
-        return log;
+        return repository.findById(logId).map(l -> setArchivedLogAndSave(filter, l));
     }
 
-    private void setArchivedLogAndSave(LogArchiveRequestDTO filter, Log log) {
+    private Log setArchivedLogAndSave(LogArchiveRequestDTO filter, Log log) {
         log.setArchived(filter.getArchived());
         log.setId(filter.getUserId());
         log.setArchivedBy(repositoryUser.getOne(filter.getUserId()));
         log.setArchivedAt(LocalDateTime.now());
-        repository.saveAndFlush(log);
+        return repository.saveAndFlush(log);
     }
 
     public Optional<Log> delete(UUID logId) {
-        Optional<Log> log = repository.findById(logId);
-        return log.map(l -> {
+        return repository.findById(logId).map(l -> {
             repository.delete(l);
             return l;
         });
