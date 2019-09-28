@@ -1,11 +1,11 @@
 package dev.codenation.logs.domain.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.GenericGenerator;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -27,7 +27,8 @@ import java.util.UUID;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY,generator = "uuid2")
+    @GenericGenerator(name = "uuid2",strategy = "uuid2")
     private UUID id;
 
     @NotNull
@@ -47,11 +48,9 @@ public class User {
     @Size(max = 100)
     private String password;
 
-    @JsonIgnore
     @OneToMany(mappedBy = "reportedBy")
     private List<Log> logs;
 
-    @JsonIgnore
     @OneToMany(mappedBy = "archivedBy")
     private List<Log> archivedLogs;
 
@@ -62,5 +61,4 @@ public class User {
     @LastModifiedDate
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
     private LocalDateTime updatedAt;
-
 }
