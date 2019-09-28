@@ -3,7 +3,6 @@ package dev.codenation.logs.service;
 import dev.codenation.logs.domain.entity.Log;
 import dev.codenation.logs.dto.request.LogArchiveRequestDTO;
 import dev.codenation.logs.dto.request.LogFilterRequestDTO;
-import dev.codenation.logs.exception.message.log.LogNotFoundException;
 import dev.codenation.logs.mapper.LogMapper;
 import dev.codenation.logs.repository.LogRepository;
 import dev.codenation.logs.repository.UserRepository;
@@ -13,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -54,12 +54,14 @@ public class LogService extends AbstractService<LogRepository, Log, UUID> {
 
     public Page<Log> findAll(LogFilterRequestDTO filter, Pageable pageable) {
         Example<Log> logExample = Example.of(mapper.map(filter), ExampleMatcher.matchingAll().withIgnoreCase());
-        return repository.findAll(logExample,pageable);
+        return repository.findAll(logExample, pageable);
     }
 
-    public Log archiveLogByIdOrElseThrowError(UUID logId, LogArchiveRequestDTO filter) throws LogNotFoundException {
-        Log log = repository.findById(logId).orElseThrow(LogNotFoundException::new);
-        setArchivedLogAndSave(filter, log);
+    public Optional<Log> archiveLogById(UUID logId, LogArchiveRequestDTO filter) {
+        Optional<Log> log = repository.findById(logId);
+        if (log.isPresent()) {
+            setArchivedLogAndSave(filter, log.get());
+        }
         return log;
     }
 
@@ -71,8 +73,11 @@ public class LogService extends AbstractService<LogRepository, Log, UUID> {
         repository.saveAndFlush(log);
     }
 
-    public void deleteOrElseThrowError(UUID logId) throws LogNotFoundException {
-        Log log = repository.findById(logId).orElseThrow(LogNotFoundException::new);
-        repository.delete(log);
+    public Optional<Log> delete(UUID logId) {
+        Optional<Log> log = repository.findById(logId);
+        return log.map(l -> {
+            repository.delete(l);
+            return l;
+        });
     }
 }
