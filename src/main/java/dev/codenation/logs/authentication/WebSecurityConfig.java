@@ -28,12 +28,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth, UserRepository repository) throws Exception {
         if (repository.count() == 0) {
             repository.save(User.builder()
-            .email("admin@squad.one.arrebenta.com.br")
-            .firstName("Admin")
-            .lastName("2.0")
-            .id(UUID.randomUUID())
-            .password(cryptPasswordEncoder().encode("SenhaMestra"))
-            .build());
+                    .email("admin@squad.one.arrebenta.com.br")
+                    .firstName("Admin")
+                    .lastName("2.0")
+                    .id(UUID.randomUUID())
+                    .password(cryptPasswordEncoder().encode("SenhaMestra"))
+                    .build());
         }
         auth.userDetailsService(userLogin -> new UserAuthVO(repository.findByEmail(userLogin)));
 
