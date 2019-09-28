@@ -1,4 +1,4 @@
-package dev.codenation.logs.domain.vo;
+package dev.codenation.logs.domain.VO;
 
 import dev.codenation.logs.domain.entity.User;
 import org.springframework.security.core.AuthenticatedPrincipal;
@@ -8,13 +8,13 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 
-public class UserAuthVO implements AuthenticatedPrincipal,UserDetails {
+public class UserAuth implements AuthenticatedPrincipal,UserDetails {
 
     private String login;
 
     private String password;
 
-    public UserAuthVO(User user) {
+    public UserAuth(User user) {
         this.login = user.getEmail();
         this.password = user.getPassword();
     }
