@@ -24,7 +24,7 @@ public interface LogMapper {
             @Mapping(source = "archivedBy", target = "archivedBy.id"),
             @Mapping(source = "reportedBy", target = "reportedBy.id")
     })
-
     Log map(LogFilterRequestDTO filter);
+
     List<Log> map(List<LogFilterRequestDTO> filter);
 }

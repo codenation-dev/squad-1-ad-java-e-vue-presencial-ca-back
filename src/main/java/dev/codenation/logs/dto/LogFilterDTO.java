@@ -1,14 +1,13 @@
-package dev.codenation.logs.dto.request;
+package dev.codenation.logs.dto;
+
 import dev.codenation.logs.domain.enums.Environment;
 import dev.codenation.logs.domain.enums.Severity;
-import lombok.Builder;
 import lombok.Data;
 
 import java.util.UUID;
 
-@Builder
 @Data
-public class LogFilterRequestDTO {
+public class LogFilterDTO {
 
     private UUID id;
 
@@ -29,5 +28,4 @@ public class LogFilterRequestDTO {
     private UUID archivedBy;
 
     private UUID reportedBy;
-
 }

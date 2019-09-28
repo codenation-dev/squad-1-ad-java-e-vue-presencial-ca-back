@@ -12,13 +12,13 @@ import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
 @Service
 public class LogService extends AbstractService<LogRepository, Log, UUID> {
 
+    @Autowired
     private LogRepository repository;
 
     @Autowired
@@ -27,11 +27,9 @@ public class LogService extends AbstractService<LogRepository, Log, UUID> {
     @Autowired
     private LogMapper mapper;
 
-
     @Autowired
     public LogService(LogRepository repository) {
         super(repository);
-        this.repository = repository;
     }
 
     public Page<LogSumaryResponseDTO> findAllGroupByHash(Log log, Pageable pageable, Sort sort) {
