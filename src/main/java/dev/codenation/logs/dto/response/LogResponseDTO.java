@@ -3,8 +3,8 @@ package dev.codenation.logs.dto.response;
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import dev.codenation.logs.domain.entity.User;
-import dev.codenation.logs.domain.valueObject.LogDetail;
-import dev.codenation.logs.domain.valueObject.Origin;
+import dev.codenation.logs.domain.vo.LogDetailVO;
+import dev.codenation.logs.domain.vo.OriginVO;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -14,8 +14,8 @@ import java.util.UUID;
 public class LogResponseDTO {
     private UUID id;
     private Integer hash;
-    private LogDetail logDetail;
-    private Origin origin;
+    private LogDetailVO logDetail;
+    private OriginVO origin;
 
     @JsonAlias("reported_by")
     private User reportedBy;
