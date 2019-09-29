@@ -2,39 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="628d2cfd-2a62-4ab0-b77d-88c74921554f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ff2dffda-a2dd-4299-86fe-1e50249a7630.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ff2dffda-a2dd-4299-86fe-1e50249a7630/storage_v2/_src_/database/squaddb.OJbeig.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ff2dffda-a2dd-4299-86fe-1e50249a7630/storage_v2/_src_/database/squaddb.OJbeig/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ff2dffda-a2dd-4299-86fe-1e50249a7630/storage_v2/_src_/database/squaddb.OJbeig/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ff2dffda-a2dd-4299-86fe-1e50249a7630/storage_v2/_src_/database/squaddb.OJbeig/schema/public.abK9xQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ff2dffda-a2dd-4299-86fe-1e50249a7630/storage_v2/_src_/database/squaddb.OJbeig/schema/public.abK9xQ.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/log-repo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/log-repo.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/log-repo.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/log-repo.main.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/log-repo.test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/log-repo.test.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/LogRepoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/LogRepoApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/controller/LogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/controller/LogController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/domain/entity/Log.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/domain/entity/Log.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/domain/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/domain/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/domain/valueObject/LogDetail.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/domain/valueObject/Origin.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/dto/request/LogFilterRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/dto/request/LogFilterRequestDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/mapper/LogMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/mapper/LogMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/mapper/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/service/AbstractService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/service/AbstractService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/service/LogService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/service/LogService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/dev/codenation/logs/service/LogServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/dev/codenation/logs/service/LogServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +82,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.LogRepoApplication">
+  <component name="RunManager" selected="Gradle.LogMapperTest">
     <configuration name="gradlew" type="BashConfigurationType" factoryName="Bash" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="sh" />
       <option name="INTERPRETER_PATH" value="/usr/bin/env" />
@@ -148,6 +116,26 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="UserServiceTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;dev.codenation.logs.service.UserServiceTest&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":cleanTest" />
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="LogRepoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="squad-one-backend.log-repo.main" />
       <extension name="coverage">
@@ -163,8 +151,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.LogRepoApplication" />
         <item itemvalue="Gradle.LogMapperTest" />
+        <item itemvalue="Gradle.UserServiceTest" />
+        <item itemvalue="Spring Boot.LogRepoApplication" />
         <item itemvalue="Bash.gradlew" />
       </list>
     </recent_temporary>
@@ -255,12 +244,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/dev/codenation/logs/mapper/LogMapperTest.java</url>
-          <line>37</line>
+          <line>43</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/test/java/dev/codenation/logs/mapper/LogMapperTest.java</url>
-          <line>35</line>
+          <line>41</line>
           <properties class="dev.codenation.logs.mapper.LogMapperTest" method="WhenMapLogFilterRequestDTO_ReturnLog">
             <option name="EMULATED" value="true" />
           </properties>
