@@ -22,9 +22,28 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
-            <expand />
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="log-repo" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="log-repo" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="log-repo" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+            </expand>
             <select />
           </tree_state>
         </projects_view>
@@ -85,7 +104,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.Tests in 'squad-one-backend.log-repo.test'">
+  <component name="RunManager" selected="Gradle.log-repo [build]">
     <configuration name="LogMapperTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -166,25 +185,31 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="LogRepoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="squad-one-backend.log-repo.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="dev.codenation.logs.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="SPRING_BOOT_MAIN_CLASS" value="dev.codenation.logs.LogRepoApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="log-repo [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.log-repo [build]" />
         <item itemvalue="Gradle.Tests in 'squad-one-backend.log-repo.test'" />
         <item itemvalue="Gradle.UserMapperTest" />
         <item itemvalue="Gradle.LogMapperTest" />
-        <item itemvalue="Spring Boot.LogRepoApplication" />
         <item itemvalue="Gradle.UserServiceTest" />
       </list>
     </recent_temporary>
@@ -281,7 +306,7 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/test/java/dev/codenation/logs/mapper/LogMapperTest.java</url>
           <line>41</line>
-          <properties class="dev.codenation.logs.mapper.LogMapperTest" method="WhenMapLogFilterRequestDTO_ReturnLog">
+          <properties class="dev.codenation.logs.mapper.LogMapperTest">
             <option name="EMULATED" value="true" />
           </properties>
           <option name="timeStamp" value="2" />

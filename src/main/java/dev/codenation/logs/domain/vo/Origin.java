@@ -1,6 +1,6 @@
-package dev.codenation.logs.domain.VO;
+package dev.codenation.logs.domain.vo;
 
-import dev.codenation.logs.domain.enums.EnvironmentEnum;
+import dev.codenation.logs.domain.enums.Environment;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -22,7 +22,7 @@ public class Origin implements Serializable {
 
     @NotNull
     @Enumerated(value = EnumType.STRING)
-    EnvironmentEnum environment;
+    Environment environment;
 
     @NotNull
     @Size(max = 100)

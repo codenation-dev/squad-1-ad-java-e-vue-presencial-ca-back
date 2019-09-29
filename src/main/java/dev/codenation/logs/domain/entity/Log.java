@@ -2,8 +2,8 @@ package dev.codenation.logs.domain.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-import dev.codenation.logs.domain.VO.LogDetail;
-import dev.codenation.logs.domain.VO.Origin;
+import dev.codenation.logs.domain.vo.LogDetail;
+import dev.codenation.logs.domain.vo.Origin;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

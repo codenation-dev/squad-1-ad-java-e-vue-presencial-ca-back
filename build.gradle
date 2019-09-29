@@ -43,7 +43,6 @@ dependencies {
 
 	// Security
 	compile('org.springframework.security.oauth:spring-security-oauth2')
-
-	compile('org.springframework.security.oauth:spring-security-oauth2')
 	compile group: 'org.springframework.security.oauth.boot', name: 'spring-security-oauth2-autoconfigure', version: '2.1.6.RELEASE'
+
 }
