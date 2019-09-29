@@ -3,12 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="628d2cfd-2a62-4ab0-b77d-88c74921554f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/domain/VO/LogDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/domain/VO/LogDetail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/domain/VO/Origin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/domain/VO/Origin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/dto/request/LogFilterRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/dto/request/LogFilterRequestDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/repository/LogRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/repository/LogRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/dev/codenation/logs/mapper/LogMapperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/dev/codenation/logs/mapper/LogMapperTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/dev/codenation/logs/service/LogServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/dev/codenation/logs/service/LogServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +85,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.UserMapperTest">
+  <component name="RunManager" selected="Gradle.Tests in 'squad-one-backend.log-repo.test'">
     <configuration name="LogMapperTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -185,9 +181,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.Tests in 'squad-one-backend.log-repo.test'" />
         <item itemvalue="Gradle.UserMapperTest" />
         <item itemvalue="Gradle.LogMapperTest" />
-        <item itemvalue="Gradle.Tests in 'squad-one-backend.log-repo.test'" />
         <item itemvalue="Spring Boot.LogRepoApplication" />
         <item itemvalue="Gradle.UserServiceTest" />
       </list>
