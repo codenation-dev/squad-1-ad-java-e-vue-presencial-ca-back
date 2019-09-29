@@ -41,8 +41,6 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 .refreshTokenValiditySeconds(REFRESH_TOKEN_SECONDS);
     }
 
-
-
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
         endpoints.authenticationManager(manager)

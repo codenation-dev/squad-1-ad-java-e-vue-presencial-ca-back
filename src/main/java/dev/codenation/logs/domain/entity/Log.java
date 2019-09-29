@@ -2,8 +2,8 @@ package dev.codenation.logs.domain.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-import dev.codenation.logs.domain.vo.LogDetailVO;
-import dev.codenation.logs.domain.vo.OriginVO;
+import dev.codenation.logs.domain.VO.LogDetail;
+import dev.codenation.logs.domain.VO.Origin;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -31,16 +31,15 @@ public class Log {
     private UUID id;
 
     @NotNull
-    @Size(max = 100)
-    private String hash;
+    private Integer hash;
 
     @NotNull
     @Embedded
-    private LogDetailVO logDetailVO;
+    private LogDetail logDetail;
 
     @NotNull
     @Embedded
-    private OriginVO originVO;
+    private Origin origin;
 
     @NotNull
     @Builder.Default
@@ -60,4 +59,8 @@ public class Log {
     @CreatedDate
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
     private LocalDateTime createdAt;
+
+    public void setHash(Object value){
+       this.hash = this.getLogDetail().getDetails().hashCode();
+    }
 }
