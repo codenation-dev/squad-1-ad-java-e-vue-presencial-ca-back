@@ -6,21 +6,24 @@ import org.hamcrest.Matchers;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.AutoConfigurationPackage;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
-import java.util.List;
 
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.when;
 
+@AutoConfigurationPackage
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class UserServiceTest {
+
 
     @Autowired
     private UserService service;

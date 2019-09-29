@@ -18,6 +18,8 @@
       <module name="log-repo.test" target="1.8" />
       <module name="log-repo_main" target="1.8" />
       <module name="log-repo_test" target="1.8" />
+      <module name="squad-one-backend.log-repo.main" target="1.8" />
+      <module name="squad-one-backend.log-repo.test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

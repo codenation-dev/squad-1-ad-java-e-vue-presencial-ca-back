@@ -1,7 +1,7 @@
 package dev.codenation.logs.service;
 
-import dev.codenation.logs.domain.vo.LogDetail;
-import dev.codenation.logs.domain.vo.Origin;
+import dev.codenation.logs.domain.VO.LogDetail;
+import dev.codenation.logs.domain.VO.Origin;
 import dev.codenation.logs.domain.entity.Log;
 import dev.codenation.logs.domain.entity.User;
 import dev.codenation.logs.domain.enums.Environment;

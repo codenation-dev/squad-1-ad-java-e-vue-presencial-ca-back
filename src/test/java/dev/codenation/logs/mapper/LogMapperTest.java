@@ -1,5 +1,7 @@
 package dev.codenation.logs.mapper;
 
+import dev.codenation.logs.authentication.AuthorizationServerConfig;
+import dev.codenation.logs.authentication.WebSecurityConfig;
 import dev.codenation.logs.domain.entity.Log;
 import dev.codenation.logs.domain.enums.Environment;
 import dev.codenation.logs.domain.enums.Severity;
@@ -8,16 +10,26 @@ import org.hamcrest.Matchers;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.UUID;
 
 import static org.junit.Assert.assertThat;
 
+@AutoConfigureMockMvc
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class LogMapperTest {
+
+
+    @MockBean
+    private AuthorizationServerConfig config;
+
+    @MockBean
+    private WebSecurityConfig securityConfig;
 
     @Autowired
     private LogMapper mapper;

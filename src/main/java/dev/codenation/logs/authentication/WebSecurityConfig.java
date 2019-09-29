@@ -2,7 +2,7 @@ package dev.codenation.logs.authentication;
 
 
 import dev.codenation.logs.domain.entity.User;
-import dev.codenation.logs.domain.vo.UserAuth;
+import dev.codenation.logs.domain.VO.UserAuth;
 import dev.codenation.logs.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -59,13 +59,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    @Override
-    public AuthenticationManager authenticationManagerBean() throws Exception {
-        return super.authenticationManagerBean();
+    public AuthenticationManager customAuth() throws Exception {
+        return authenticationManagerBean();
     }
 
     @Bean
-    public static BCryptPasswordEncoder cryptPasswordEncoder() {
+    public static BCryptPasswordEncoder cryptPasswordEncoder(){
         return new BCryptPasswordEncoder();
     }
 
