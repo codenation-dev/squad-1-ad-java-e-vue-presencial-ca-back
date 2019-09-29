@@ -2,10 +2,12 @@ package dev.codenation.logs.dto.request;
 
 import dev.codenation.logs.domain.enums.EnvironmentEnum;
 import dev.codenation.logs.domain.enums.SeverityEnum;
+import lombok.Builder;
 import lombok.Data;
 
 import java.util.UUID;
 
+@Builder
 @Data
 public class LogFilterRequestDTO {
 
