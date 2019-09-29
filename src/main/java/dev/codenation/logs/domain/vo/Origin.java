@@ -1,4 +1,4 @@
-package dev.codenation.logs.domain.VO;
+package dev.codenation.logs.domain.vo;
 
 import dev.codenation.logs.domain.enums.Environment;
 import lombok.AllArgsConstructor;
