@@ -1,4 +1,4 @@
-package dev.codenation.logs.domain.valueObject;
+package dev.codenation.logs.domain.VO;
 
 import dev.codenation.logs.domain.enums.Severity;
 import lombok.AllArgsConstructor;

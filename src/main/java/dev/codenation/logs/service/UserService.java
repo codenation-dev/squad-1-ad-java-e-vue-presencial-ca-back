@@ -11,11 +11,11 @@ import org.springframework.stereotype.Service;
 import java.util.UUID;
 
 @Service
-public class UserService extends AbstractService<UserRepository, User, UUID> {
+public class UserService extends AbstractService<UserRepository, User, UUID>{
 
     @Autowired
     private UserMapper mapper;
-    
+
     @Autowired
     public UserService(UserRepository repository) {
         super(repository);

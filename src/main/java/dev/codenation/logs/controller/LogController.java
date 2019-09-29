@@ -43,7 +43,6 @@ public class LogController {
     @GetMapping("teste")
     @ResponseStatus(HttpStatus.OK)
     public Page<LogSumaryResponseDTO> teste(LogFilterRequestDTO filter, Pageable page) {
-
         Log map = mapper.map(filter);
         return logService.findAllGroupByHash(map, page, Sort.unsorted());
     }

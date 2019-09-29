@@ -11,6 +11,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.UUID;
 
 @AllArgsConstructor
@@ -18,7 +19,6 @@ import java.util.UUID;
 @RequestMapping("/user")
 public class UserController {
 
-    @Autowired
     private UserService service;
 
     @Autowired
@@ -26,14 +26,8 @@ public class UserController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public User create(@RequestBody UserRequestDTO user) {
-        return service.save(mapper.map(user));
-    }
-
-    @GetMapping("/{id}")
-    @ResponseStatus(HttpStatus.OK)
-    public User getById(@PathVariable UUID id) {
-        return service.findById(id).orElse(null);
+    public void createUser(@Valid @RequestBody User user) {
+        service.save(user);
     }
 
     @GetMapping
