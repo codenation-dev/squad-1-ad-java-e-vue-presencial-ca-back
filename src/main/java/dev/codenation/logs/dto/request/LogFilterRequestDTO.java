@@ -1,4 +1,5 @@
 package dev.codenation.logs.dto.request;
+
 import dev.codenation.logs.domain.enums.Environment;
 import dev.codenation.logs.domain.enums.Severity;
 import lombok.Builder;
