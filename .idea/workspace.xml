@@ -3,9 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="628d2cfd-2a62-4ab0-b77d-88c74921554f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/authentication/ResourcesConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/authentication/ResourcesConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/controller/LogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/controller/LogController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/domain/entity/Log.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/domain/entity/Log.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/dto/request/LogFilterRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/dto/request/LogFilterRequestDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/dto/response/LogSumaryResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/dto/response/LogSumaryResponseDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/repository/LogRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/repository/LogRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/service/LogService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/service/LogService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -65,6 +72,13 @@
       </set>
     </option>
   </component>
+  <component name="InvalidFacetManager">
+    <ignored-facets>
+      <facet id="log-repo.main/invalid/JPA" />
+      <facet id="log-repo.main/invalid/Spring" />
+      <facet id="log-repo.main/invalid/Web" />
+    </ignored-facets>
+  </component>
   <component name="JsFlowSettings">
     <service-enabled>true</service-enabled>
     <exe-path />
@@ -104,7 +118,20 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.log-repo [build]">
+  <component name="RunManager" selected="Application.LogRepoApplication">
+    <configuration name="LogRepoApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="dev.codenation.logs.LogRepoApplication" />
+      <module name="dev.codenation.log-repo.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dev.codenation.logs.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="LogMapperTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -165,26 +192,6 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="UserServiceTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;dev.codenation.logs.service.UserServiceTest&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":cleanTest" />
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
     <configuration name="log-repo [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -206,11 +213,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.LogRepoApplication" />
         <item itemvalue="Gradle.log-repo [build]" />
         <item itemvalue="Gradle.Tests in 'squad-one-backend.log-repo.test'" />
         <item itemvalue="Gradle.UserMapperTest" />
         <item itemvalue="Gradle.LogMapperTest" />
-        <item itemvalue="Gradle.UserServiceTest" />
       </list>
     </recent_temporary>
   </component>
