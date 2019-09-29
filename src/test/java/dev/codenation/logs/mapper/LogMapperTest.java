@@ -3,8 +3,8 @@ package dev.codenation.logs.mapper;
 import dev.codenation.logs.authentication.AuthorizationServerConfig;
 import dev.codenation.logs.authentication.WebSecurityConfig;
 import dev.codenation.logs.domain.entity.Log;
-import dev.codenation.logs.domain.enums.Environment;
-import dev.codenation.logs.domain.enums.Severity;
+import dev.codenation.logs.domain.enums.EnvironmentEnum;
+import dev.codenation.logs.domain.enums.SeverityEnum;
 import dev.codenation.logs.dto.request.LogFilterRequestDTO;
 import org.hamcrest.Matchers;
 import org.junit.Test;
@@ -51,11 +51,11 @@ public class LogMapperTest {
         assertThat(log.getLogDetail().getDetails(), Matchers.equalTo("Details"));
         assertThat(log.getArchived(), Matchers.equalTo(Boolean.TRUE));
         assertThat(log.getArchivedBy().getId(), Matchers.equalTo(id_user));
-        assertThat(log.getOrigin().getEnvironment(), Matchers.equalTo(Environment.DEV));
+        assertThat(log.getOrigin().getEnvironment(), Matchers.equalTo(EnvironmentEnum.DEV));
         assertThat(log.getLogDetail().getMessage(), Matchers.equalTo("Message"));
         assertThat(log.getOrigin().getOrigin(), Matchers.equalTo("Origin"));
         assertThat(log.getReportedBy().getId(), Matchers.equalTo(id_user));
-        assertThat(log.getLogDetail().getSeverity(), Matchers.equalTo(Severity.WARNING));
+        assertThat(log.getLogDetail().getSeverity(), Matchers.equalTo(SeverityEnum.WARNING));
     }
 
 
@@ -66,11 +66,11 @@ public class LogMapperTest {
                 .details("Details")
                 .archived(Boolean.TRUE)
                 .archivedBy(id_user)
-                .environment(Environment.DEV)
+                .environment(EnvironmentEnum.DEV)
                 .message("Message")
                 .origin("Origin")
                 .reportedBy(id_user)
-                .severity(Severity.WARNING)
+                .severity(SeverityEnum.WARNING)
                 .build();
     }
 

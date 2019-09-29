@@ -1,5 +1,7 @@
 package dev.codenation.logs.mapper;
 
+import dev.codenation.logs.authentication.AuthorizationServerConfig;
+import dev.codenation.logs.authentication.WebSecurityConfig;
 import dev.codenation.logs.domain.entity.User;
 import dev.codenation.logs.dto.request.UserFilterRequestDTO;
 import dev.codenation.logs.dto.request.UserRequestDTO;
@@ -8,6 +10,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.junit.Assert.assertThat;
@@ -15,6 +18,12 @@ import static org.junit.Assert.assertThat;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class UserMapperTest {
+
+    @MockBean
+    private AuthorizationServerConfig config;
+
+    @MockBean
+    private WebSecurityConfig securityConfig;
 
     @Autowired
     private UserMapper mapper;
