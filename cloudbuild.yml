@@ -1,16 +1,16 @@
 #cloudbuild.yaml
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: ["build", "-t", "gcr.io/[PROJECT-ID]/[IMAGE]", "."]
+  args: ["build", "-t", "gcr.io/$PROJECT_ID/$REPO_NAME", "."]
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['tag', 'logsone:latest', 'gcr.io/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA']
+  args: ['tag', '$REPO_NAME:latest', 'gcr.io/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA']
 - name: 'gcr.io/cloud-builders/docker'
-  args: ["push", "gcr.io/[PROJECT-ID]/[IMAGE]"]
+  args: ["push", "gcr.io/$PROJECT_ID/$REPO_NAME"]
 - name: 'gcr.io/cloud-builders/gke-deploy:stable'
   args:
   - run
-  - --image=gcr.io/[PROJECT-ID]/[IMAGE]:[TAG]
-  - --location=[LOCATION]
-  - --cluster=[CLUSTER]
+  - --image=gcr.io/$PROJECT_ID/$REPO_NAME:$TAG_NAME
+  - --location=us-west2-a
+  - --cluster=logsone-cluster
 images: ['gcr.io/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA']
 
