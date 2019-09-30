@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="628d2cfd-2a62-4ab0-b77d-88c74921554f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/authentication/ResourcesConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/authentication/ResourcesConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/controller/LogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/controller/LogController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/domain/entity/Log.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/domain/entity/Log.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/dto/request/LogFilterRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/dto/request/LogFilterRequestDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/dto/response/LogSumaryResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/dto/response/LogSumaryResponseDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/repository/LogRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/repository/LogRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/service/LogService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/codenation/logs/service/LogService.java" afterDir="false" />
@@ -309,6 +305,11 @@
           <url>file://$PROJECT_DIR$/src/test/java/dev/codenation/logs/mapper/LogMapperTest.java</url>
           <line>43</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/dev/codenation/logs/service/LogService.java</url>
+          <line>35</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/test/java/dev/codenation/logs/mapper/LogMapperTest.java</url>

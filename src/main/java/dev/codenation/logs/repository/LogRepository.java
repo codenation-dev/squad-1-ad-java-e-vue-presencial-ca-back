@@ -26,20 +26,27 @@ public interface LogRepository extends JpaRepository<Log, UUID> {
             "l.archived," +
             "CAST(l.reported_by AS VARCHAR) as reportedBy," +
             "l.created_at as createdAt," +
-            "CAST(l2.total AS INTEGER)" +
+            "CAST(l2.total AS VARCHAR) as occurrences " +
             "FROM logs l " +
             "INNER JOIN " +
             "  (SELECT count(hash) total, hash FROM logs GROUP BY hash) AS l2 " +
             "   ON l2.hash = l.hash " +
+            "WHERE 1 = 1 " +
+            "      and (coalesce(:message, null) is null or lower(l.message) like '%' || CAST(:message AS VARCHAR) || '%' )" +
+            "      and (coalesce(:details, null) is null or lower(l.details) like '%' || CAST(:details AS VARCHAR) || '%' ) " +
+            "      and (CAST(:severity AS VARCHAR) = 'null' or lower(l.severity) = CAST(:severity AS VARCHAR)) " +
+            "      and (CAST(:environment AS VARCHAR) = 'null' or lower(l.environment) = CAST(:environment AS VARCHAR)) " +
+            "      and (coalesce(:origin, null) is null or lower(l.origin) like '%' || CAST(:origin AS VARCHAR) || '%') " +
+            "      and (CAST(:reportedBy AS VARCHAR) = 'null' or CAST(l.reported_by AS VARCHAR) = CAST(:reportedBy AS VARCHAR)) " +
+            "      and (l.archived is false) " +
             "ORDER BY l.hash, l.created_at DESC " +
             "\n-- #pageable\n",
-            nativeQuery = true )
-    Page<LogSumaryResponseDTO> findAllSumarized(@Param("hash") Integer hash,
-                                                @Param("message") String message,
+            nativeQuery = true)
+    Page<LogSumaryResponseDTO> findAllSumarized(@Param("message") String message,
                                                 @Param("details") String details,
-                                                @Param("severity") Severity severity,
-                                                @Param("environment") Environment environment,
+                                                @Param("severity") String severity,
+                                                @Param("environment") String environment,
                                                 @Param("origin") String origin,
-                                                @Param("reportedBy") UUID reportedBy,
-                                                Pageable pageable);
+                                                @Param("reportedBy") String reportedBy,
+                                               Pageable pageable);
 }

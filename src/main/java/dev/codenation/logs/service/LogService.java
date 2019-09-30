@@ -34,13 +34,12 @@ public class LogService extends AbstractService<LogRepository, Log, UUID> {
 
     public Page<LogSumaryResponseDTO> findAllGroupByHash(LogFilterRequestDTO filter, Pageable pageable) {
         Log log = mapper.map(filter);
-        return repository.findAllSumarized(log.getHash(),
-                log.getLogDetail().getMessage(),
+        return repository.findAllSumarized(log.getLogDetail().getMessage(),
                 log.getLogDetail().getDetails(),
-                log.getLogDetail().getSeverity(),
-                log.getOrigin().getEnvironment(),
+                String.valueOf(log.getLogDetail().getSeverity()),
+                String.valueOf(log.getOrigin().getEnvironment()),
                 log.getOrigin().getOrigin(),
-                log.getReportedBy().getId(),
+                String.valueOf(log.getReportedBy().getId()),
                 pageable);
     }
 
