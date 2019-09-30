@@ -34,11 +34,13 @@ public class LogController {
         return logService.findAll(filter, page);
     }
 
+
     @GetMapping("/sumarized")
     @ResponseStatus(HttpStatus.OK)
     public Page<LogSumaryResponseDTO> findAllSumarized(LogFilterRequestDTO filter, Pageable page) {
         return logService.findAllGroupByHash(filter, page);
     }
+
 
     @PatchMapping("/archive/{logId}")
     @ResponseStatus(HttpStatus.OK)
