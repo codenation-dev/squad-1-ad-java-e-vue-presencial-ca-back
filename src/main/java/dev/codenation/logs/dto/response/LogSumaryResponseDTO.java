@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 
 public interface LogSumaryResponseDTO {
 
-    public Integer getHash();
+    public String getHash();
 
     public String getId();
 
@@ -25,6 +25,6 @@ public interface LogSumaryResponseDTO {
 
     public LocalDateTime getCreatedAt();
 
-    public Long getTotal();
+    public String getOccurrences();
 
 }
