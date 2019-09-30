@@ -40,13 +40,6 @@ public class LogController {
         return logService.findAll(filter, page);
     }
 
-    @GetMapping("teste")
-    @ResponseStatus(HttpStatus.OK)
-    public Page<LogSumaryResponseDTO> teste(LogFilterRequestDTO filter, Pageable page) {
-        Log map = mapper.map(filter);
-        return logService.findAllGroupByHash(map, page, Sort.unsorted());
-    }
-
 
     @PatchMapping("/archive/{logId}")
     @ResponseStatus(HttpStatus.OK)
