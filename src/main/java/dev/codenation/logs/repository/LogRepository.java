@@ -1,8 +1,8 @@
 package dev.codenation.logs.repository;
 
 import dev.codenation.logs.domain.entity.Log;
-import dev.codenation.logs.domain.enums.EnvironmentEnum;
-import dev.codenation.logs.domain.enums.SeverityEnum;
+import dev.codenation.logs.domain.enums.Environment;
+import dev.codenation.logs.domain.enums.Severity;
 import dev.codenation.logs.dto.response.LogSumaryResponseDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -17,14 +17,14 @@ import java.util.UUID;
 public interface LogRepository extends JpaRepository<Log, UUID> {
 
     @Query(value = "SELECT DISTINCT ON (l.hash) l.hash, " +
-            "l.id, " +
+            "CAST(l.id AS VARCHAR) as id, " +
             "l.message," +
             "l.details," +
             "l.severity," +
             "l.environment," +
             "l.origin," +
             "l.archived," +
-            "l.reported_by as reportedBy," +
+            "CAST(l.reported_by AS VARCHAR) as reportedBy," +
             "l.created_at as createdAt," +
             "CAST(l2.total AS INTEGER)" +
             "FROM logs l " +
@@ -37,8 +37,8 @@ public interface LogRepository extends JpaRepository<Log, UUID> {
     Page<LogSumaryResponseDTO> findAllSumarized(@Param("hash") Integer hash,
                                                 @Param("message") String message,
                                                 @Param("details") String details,
-                                                @Param("severity") SeverityEnum severity,
-                                                @Param("environment") EnvironmentEnum environment,
+                                                @Param("severity") Severity severity,
+                                                @Param("environment") Environment environment,
                                                 @Param("origin") String origin,
                                                 @Param("reportedBy") UUID reportedBy,
                                                 Pageable pageable);

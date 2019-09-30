@@ -1,4 +1,4 @@
-package dev.codenation.logs.domain.VO;
+package dev.codenation.logs.domain.vo;
 
 import dev.codenation.logs.domain.entity.User;
 import org.springframework.security.core.AuthenticatedPrincipal;
