@@ -10,7 +10,6 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/log-repo.test.iml" filepath="$PROJECT_DIR$/.idea/modules/log-repo.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/squad-one-backend.log-repo.iml" filepath="$PROJECT_DIR$/.idea/modules/squad-one-backend.log-repo.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/squad-one-backend.log-repo.main.iml" filepath="$PROJECT_DIR$/.idea/modules/squad-one-backend.log-repo.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/squad-one-backend.log-repo.test.iml" filepath="$PROJECT_DIR$/.idea/modules/squad-one-backend.log-repo.test.iml" />
     </modules>
   </component>
 </project>

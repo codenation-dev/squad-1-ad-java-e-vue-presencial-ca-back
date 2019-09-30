@@ -17,14 +17,14 @@ import java.util.UUID;
 public interface LogRepository extends JpaRepository<Log, UUID> {
 
     @Query(value = "SELECT DISTINCT ON (l.hash) l.hash, " +
-            "l.id, " +
+            "CAST(l.id AS VARCHAR) as id, " +
             "l.message," +
             "l.details," +
             "l.severity," +
             "l.environment," +
             "l.origin," +
             "l.archived," +
-            "l.reported_by as reportedBy," +
+            "CAST(l.reported_by AS VARCHAR) as reportedBy," +
             "l.created_at as createdAt," +
             "CAST(l2.total AS INTEGER)" +
             "FROM logs l " +
