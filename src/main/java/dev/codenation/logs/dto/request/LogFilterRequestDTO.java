@@ -9,10 +9,10 @@ import lombok.NoArgsConstructor;
 
 import java.util.UUID;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Builder
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class LogFilterRequestDTO {
 
     private UUID id;
