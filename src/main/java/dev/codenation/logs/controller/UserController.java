@@ -46,7 +46,7 @@ public class UserController {
     }
 
 
-    @GetMapping(value = "/username")
+    @GetMapping(value = "/info")
     public UserInformation getUserInfo(){
         return service.getUserInformation();
     }
