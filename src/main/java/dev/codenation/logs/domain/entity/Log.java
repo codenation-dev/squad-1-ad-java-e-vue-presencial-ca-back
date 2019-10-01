@@ -61,7 +61,7 @@ public class Log {
 
     public void setHash(Object value){
         if(this.hash != null) {
-            this.hash = this.getLogDetail().getDetails().hashCode();
+            this.hash = this.getLogDetail().getMessage().hashCode();
         }
     }
 }
