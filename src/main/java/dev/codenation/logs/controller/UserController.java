@@ -3,6 +3,7 @@ package dev.codenation.logs.controller;
 import dev.codenation.logs.domain.entity.User;
 import dev.codenation.logs.dto.request.UserFilterRequestDTO;
 import dev.codenation.logs.dto.request.UserRequestDTO;
+import dev.codenation.logs.exception.message.user.UserNotFoundException;
 import dev.codenation.logs.mapper.UserMapper;
 import dev.codenation.logs.service.UserService;
 import lombok.AllArgsConstructor;
@@ -35,6 +36,13 @@ public class UserController {
     public Page<User> findAll(UserFilterRequestDTO filter) {
         return service.findAll(filter);
     }
+
+    @GetMapping(value = "/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public User findUser(@PathVariable UUID id) throws UserNotFoundException {
+        return service.findById(id).orElseThrow(UserNotFoundException::new);
+    }
+
 
     @PatchMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
