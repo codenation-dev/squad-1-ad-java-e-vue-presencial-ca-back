@@ -1,6 +1,7 @@
 package dev.codenation.logs.controller;
 
 import dev.codenation.logs.domain.entity.User;
+import dev.codenation.logs.domain.vo.UserInformation;
 import dev.codenation.logs.dto.request.UserFilterRequestDTO;
 import dev.codenation.logs.dto.request.UserRequestDTO;
 import dev.codenation.logs.exception.message.user.UserNotFoundException;
@@ -10,6 +11,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -43,6 +45,11 @@ public class UserController {
         return service.findById(id).orElseThrow(UserNotFoundException::new);
     }
 
+
+    @GetMapping(value = "/username")
+    public UserInformation getUserInfo(){
+        return service.getUserInformation();
+    }
 
     @PatchMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
