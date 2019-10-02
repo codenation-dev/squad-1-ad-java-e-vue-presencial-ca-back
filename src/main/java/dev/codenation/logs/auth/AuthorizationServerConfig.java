@@ -1,4 +1,4 @@
-package dev.codenation.logs.authentication;
+package dev.codenation.logs.auth;
 
 import dev.codenation.logs.domain.enums.FrontendAuthEnum;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +34,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         clients.inMemory()
                 .withClient(FrontendAuthEnum.WHO_IS_MINE_BEAUTY_FRONTEND_APPLICATION.name())
-                .secret(new BCryptPasswordEncoder().encode(FrontendAuthEnum.YOU_IS.name()))
+                .secret(WebSecurityConfig.cryptPasswordEncoder().encode(FrontendAuthEnum.YOU_IS.name()))
                 .authorizedGrantTypes("password","authorization-code","refresh-token","implicit")
                 .scopes("read","write","trust")
                 .accessTokenValiditySeconds(ACCESS_TOKEN_INITIAL_SECONDS)
