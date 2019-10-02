@@ -43,6 +43,9 @@ dependencies {
 	testCompile group: 'junit', name: 'junit', version: '4.12'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
+	//social oauth
+	compile group: 'org.springframework.social', name: 'spring-social-facebook', version: '2.0.3.RELEASE'
+
 	// Security
 	compile('org.springframework.security.oauth:spring-security-oauth2')
 	compile group: 'org.springframework.security.oauth.boot', name: 'spring-security-oauth2-autoconfigure', version: '2.1.6.RELEASE'
