@@ -3,6 +3,8 @@ package dev.codenation.logs.service;
 import dev.codenation.logs.domain.entity.User;
 import dev.codenation.logs.domain.vo.UserAuth;
 import dev.codenation.logs.domain.vo.UserInformation;
+import dev.codenation.logs.dto.request.UserRequestDTO;
+import dev.codenation.logs.exception.message.log.LogNotFoundException;
 import dev.codenation.logs.exception.message.user.UserNotFoundException;
 import dev.codenation.logs.mapper.UserMapper;
 import dev.codenation.logs.repository.UserRepository;
@@ -14,7 +16,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
-public class UserService extends AbstractService<UserRepository, User, UUID>{
+public class UserService extends AbstractService<UserRepository, User, UUID> {
 
     @Autowired
     private UserMapper mapper;
@@ -27,9 +29,8 @@ public class UserService extends AbstractService<UserRepository, User, UUID>{
         super(repository);
     }
 
-    @Override
-    public User save(User user) {
-          return (User) repository.save(user);
+    public User save(UserRequestDTO dto) {
+        return (User) repository.save(mapper.map(dto));
     }
 
     public List<UserInformation> findAllInList() {
@@ -37,16 +38,16 @@ public class UserService extends AbstractService<UserRepository, User, UUID>{
     }
 
     public UserInformation getUserInformation() {
-        return mapper.map(getUserFromUserAuth());
+        return mapper.mapInf(getUserFromUserAuth());
     }
 
     private User getUserFromUserAuth() {
         UserAuth principal = (UserAuth) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        return userRepository.findUserByEmail
+        return userRepository.findByEmail
                 (principal.getUsername());
     }
 
-    public UserInformation getUserInformation(UUID id) throws UserNotFoundException {
+    public UserInformation getUserInformation(UUID id) throws UserNotFoundException, LogNotFoundException {
         return mapper.mapInf(findById(id).orElseThrow(UserNotFoundException::new));
     }
 }
