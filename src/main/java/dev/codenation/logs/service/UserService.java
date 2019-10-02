@@ -45,7 +45,8 @@ public class UserService extends AbstractService<UserRepository, User, UUID>{
 
     private User getUserFromUserAuth() {
         UserAuth principal = (UserAuth) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        return userRepository.findByEmail(principal.getUsername());
+        return userRepository.findUserByEmail
+                (principal.getUsername());
     }
 
     public UserInformation getUserInformation(UUID id) throws UserNotFoundException {
