@@ -6,6 +6,7 @@ import dev.codenation.logs.domain.enums.Environment;
 import dev.codenation.logs.domain.enums.Severity;
 import dev.codenation.logs.domain.vo.LogDetail;
 import dev.codenation.logs.domain.vo.Origin;
+import dev.codenation.logs.exception.message.log.LogNotFoundException;
 import dev.codenation.logs.repository.LogRepository;
 import org.hamcrest.Matchers;
 import org.junit.Before;
@@ -47,7 +48,7 @@ public class LogServiceTest {
     }
 
     @Test
-    public void WhenFindByValidId_LogShouldBeReturned() {
+    public void WhenFindByValidId_LogShouldBeReturned() throws LogNotFoundException {
         UUID id = UUID.randomUUID();
         Log logExpected = createLog();
         logExpected.setId(id);

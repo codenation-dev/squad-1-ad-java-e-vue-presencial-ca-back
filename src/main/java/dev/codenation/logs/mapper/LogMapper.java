@@ -3,8 +3,7 @@ package dev.codenation.logs.mapper;
 import dev.codenation.logs.domain.entity.Log;
 import dev.codenation.logs.dto.request.LogCreationDTO;
 import dev.codenation.logs.dto.request.LogFilterRequestDTO;
-import dev.codenation.logs.dto.response.AllLogSummaryResponseDTO;
-import dev.codenation.logs.dto.response.LogSumaryResponseDTO;
+import dev.codenation.logs.dto.response.LogResponseDTO;
 import org.mapstruct.*;
 
 import java.util.List;
@@ -49,7 +48,7 @@ public interface LogMapper {
             @Mapping(source = "reportedBy.id", target = "reportedBy.id")
     })
     @Named("toDto")
-    AllLogSummaryResponseDTO map(Log log);
+    LogResponseDTO map(Log log);
 
     @Mappings({
             @Mapping(source = "id", target = "id"),
@@ -62,12 +61,12 @@ public interface LogMapper {
             @Mapping(source = "archivedBy.id", target = "archivedBy.id"),
             @Mapping(source = "reportedBy.id", target = "reportedBy.id")
     })
-    AllLogSummaryResponseDTO map(@MappingTarget AllLogSummaryResponseDTO dto, Log parent);
+    LogResponseDTO map(@MappingTarget LogResponseDTO dto, Log parent);
 
     @IterableMapping(qualifiedByName = "toDto")
-    List<AllLogSummaryResponseDTO> map(List<Log> children);
+    List<LogResponseDTO> map(List<Log> children);
 
-    static List<AllLogSummaryResponseDTO> map(List<Log> children, Log parent) {
+    static List<LogResponseDTO> map(List<Log> children, Log parent) {
         throw new UnsupportedOperationException("Not implemented");
     }
 }
