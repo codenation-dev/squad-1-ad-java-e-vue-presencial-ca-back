@@ -36,36 +36,38 @@ public interface LogMapper {
             @Mapping(source = "reportedBy.id", target = "reportedBy.id")
     })
     Log map(LogCreationDTO logCreationDTO);
-//
-//    @Mappings({
-//            @Mapping(source = "id", target = "id"),
-//            @Mapping(source = "hash", target = "hash"),
-//            @Mapping(source = "message", target = "logDetail.message"),
-//            @Mapping(source = "details", target = "logDetail.details"),
-//            @Mapping(source = "severity", target = "logDetail.severity"),
-//            @Mapping(source = "environment", target = "origin.environment"),
-//            @Mapping(source = "origin", target = "origin.origin"),
-//            @Mapping(source = "archived", target = "archived"),
-//            @Mapping(source = "archivedBy", target = "archivedBy.id"),
-//            @Mapping(source = "reportedBy", target = "reportedBy.id")
-//    })
-//    @Named("toDto")
-//    AllLogSummaryResponseDTO map(Log log);
-//
-//    @Mappings({
-//            @Mapping(source = "id", target = "id"),
-//            @Mapping(source = "firstName",target = "firstName"),
-//            @Mapping(source = "lastName",target = "lastName"),
-//            @Mapping(source = "email",target = "email"),
-//            @Mapping(source = "createdAt", target = "createdAt"),
-//            @Mapping(source = "updatedAt",target = "updatedAt")
-//    })
-//    AllLogSummaryResponseDTO map(@MappingTarget AllLogSummaryResponseDTO dto, Log parent);
-//
-//    @IterableMapping(qualifiedByName = "toDto")
-//    List<AllLogSummaryResponseDTO> map(List<Log> children);
-//
-//    static List<AllLogSummaryResponseDTO> map(List<Log> children, Log parent) {
-//        throw new UnsupportedOperationException("Not implemented");
-//    }
+
+    @Mappings({
+            @Mapping(source = "id", target = "id"),
+            @Mapping(source = "hash", target = "hash"),
+            @Mapping(source = "logDetail.message", target = "message"),
+            @Mapping(source = "logDetail.details", target = "details"),
+            @Mapping(source = "logDetail.severity", target = "severity"),
+            @Mapping(source = "origin", target = "origin"),
+            @Mapping(source = "archived", target = "archived"),
+            @Mapping(source = "archivedBy.id", target = "archivedBy.id"),
+            @Mapping(source = "reportedBy.id", target = "reportedBy.id")
+    })
+    @Named("toDto")
+    AllLogSummaryResponseDTO map(Log log);
+
+    @Mappings({
+            @Mapping(source = "id", target = "id"),
+            @Mapping(source = "hash", target = "hash"),
+            @Mapping(source = "logDetail.message", target = "message"),
+            @Mapping(source = "logDetail.details", target = "details"),
+            @Mapping(source = "logDetail.severity", target = "severity"),
+            @Mapping(source = "origin", target = "origin"),
+            @Mapping(source = "archived", target = "archived"),
+            @Mapping(source = "archivedBy.id", target = "archivedBy.id"),
+            @Mapping(source = "reportedBy.id", target = "reportedBy.id")
+    })
+    AllLogSummaryResponseDTO map(@MappingTarget AllLogSummaryResponseDTO dto, Log parent);
+
+    @IterableMapping(qualifiedByName = "toDto")
+    List<AllLogSummaryResponseDTO> map(List<Log> children);
+
+    static List<AllLogSummaryResponseDTO> map(List<Log> children, Log parent) {
+        throw new UnsupportedOperationException("Not implemented");
+    }
 }

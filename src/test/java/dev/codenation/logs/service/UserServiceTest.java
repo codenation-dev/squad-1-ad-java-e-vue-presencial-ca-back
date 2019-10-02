@@ -1,6 +1,7 @@
 package dev.codenation.logs.service;
 
 import dev.codenation.logs.domain.entity.User;
+import dev.codenation.logs.exception.message.log.LogNotFoundException;
 import dev.codenation.logs.repository.UserRepository;
 import dev.codenation.logs.util.UserUtil;
 import org.hamcrest.Matchers;
@@ -35,7 +36,7 @@ public class UserServiceTest {
     private UserRepository repository;
 
     @Test
-    public void WhenFindByValidId_ReturnUser() {
+    public void WhenFindByValidId_ReturnUser() throws LogNotFoundException {
         UUID id = UUID.randomUUID();
         User userExpected = userUtil.createUser();
         userExpected.setId(id);

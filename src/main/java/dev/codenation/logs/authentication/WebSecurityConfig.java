@@ -40,7 +40,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .password(cryptPasswordEncoder().encode("SenhaMestra"))
                     .build());
         }
-        auth.userDetailsService(repository::findByEmail).passwordEncoder(cryptPasswordEncoder());
+        auth.userDetailsService(userLogin -> new UserAuth(repository.findByEmail(userLogin)));
 
     }
 

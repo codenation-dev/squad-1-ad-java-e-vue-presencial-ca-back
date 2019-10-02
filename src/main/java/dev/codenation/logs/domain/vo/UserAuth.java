@@ -5,18 +5,21 @@ import lombok.Data;
 import org.springframework.security.core.AuthenticatedPrincipal;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 
 import java.util.Collection;
 
 @Data
-public class UserAuth implements UserDetails {
+public class UserAuth implements AuthenticatedPrincipal,UserDetails {
 
     private String login;
 
     private String password;
 
+    public UserAuth(User user) {
+        this.login = user.getEmail();
+        this.password = user.getPassword();
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -25,12 +28,12 @@ public class UserAuth implements UserDetails {
 
     @Override
     public String getPassword() {
-        return password;
+        return this.password;
     }
 
     @Override
     public String getUsername() {
-        return login;
+        return this.login;
     }
 
     @Override
@@ -53,4 +56,8 @@ public class UserAuth implements UserDetails {
         return true;
     }
 
+    @Override
+    public String getName() {
+        return getUsername();
+    }
 }
