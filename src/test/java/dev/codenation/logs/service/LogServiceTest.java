@@ -1,11 +1,11 @@
 package dev.codenation.logs.service;
 
-import dev.codenation.logs.domain.VO.LogDetail;
-import dev.codenation.logs.domain.VO.Origin;
 import dev.codenation.logs.domain.entity.Log;
 import dev.codenation.logs.domain.entity.User;
-import dev.codenation.logs.domain.enums.EnvironmentEnum;
-import dev.codenation.logs.domain.enums.SeverityEnum;
+import dev.codenation.logs.domain.enums.Environment;
+import dev.codenation.logs.domain.enums.Severity;
+import dev.codenation.logs.domain.vo.LogDetail;
+import dev.codenation.logs.domain.vo.Origin;
 import dev.codenation.logs.repository.LogRepository;
 import org.hamcrest.Matchers;
 import org.junit.Before;
@@ -37,12 +37,12 @@ public class LogServiceTest {
 
     @Before
     public void init_data() {
-        Log log1 = createLog(SeverityEnum.DEBUG, "localhost", EnvironmentEnum.PROD, "details1");
-        Log log2 = createLog(SeverityEnum.ERROR, "128.000", EnvironmentEnum.DEV, "details1");
-        Log log3 = createLog(SeverityEnum.WARNING, "localhost", EnvironmentEnum.PROD, "details2");
-        Log log4 = createLog(SeverityEnum.FATAL, "localhost", EnvironmentEnum.HMG, "details3");
-        Log log5 = createLog(SeverityEnum.WARNING, "128.000", EnvironmentEnum.DEV, "details3");
-        Log log6 = createLog(SeverityEnum.INFO, "localhost", EnvironmentEnum.PROD, "details4");
+        Log log1 = createLog(Severity.DEBUG, "localhost", Environment.PROD, "details1");
+        Log log2 = createLog(Severity.ERROR, "128.000", Environment.DEV, "details1");
+        Log log3 = createLog(Severity.WARNING, "localhost", Environment.PROD, "details2");
+        Log log4 = createLog(Severity.FATAL, "localhost", Environment.HMG, "details3");
+        Log log5 = createLog(Severity.WARNING, "128.000", Environment.DEV, "details3");
+        Log log6 = createLog(Severity.INFO, "localhost", Environment.PROD, "details4");
         logs = Arrays.asList(log1, log2, log3, log4, log5, log6);
     }
 
@@ -84,13 +84,13 @@ public class LogServiceTest {
     }
 
     @Test
-    public void WhenFindAllLogsByEnvironmentEnum_ReturnLogsFilteredByEnvironmentEnum(){
+    public void WhenFindAllLogsByEnvironment_ReturnLogsFilteredByEnvironment(){
         List<Log> logsFiltered = Arrays.asList(logs.get(1), logs.get(4));
         Page<Log> pageLogsFiltered = new PageImpl<>(logsFiltered);
 
         Example<Log> example = Example.of(Log.builder()
                 .origin(Origin.builder()
-                        .environment(EnvironmentEnum.DEV)
+                        .environment(Environment.DEV)
                         .build())
                 .build());
         when(repository.findAll(example, Pageable.unpaged())).thenReturn(pageLogsFiltered);
@@ -107,7 +107,7 @@ public class LogServiceTest {
 
         Example<Log> example = Example.of(Log.builder()
                 .logDetail(LogDetail.builder()
-                        .severity(SeverityEnum.WARNING)
+                        .severity(Severity.WARNING)
                         .build())
                 .build());
         when(repository.findAll(example, Pageable.unpaged())).thenReturn(pageLogsFiltered);
@@ -150,7 +150,7 @@ public class LogServiceTest {
     }
 
     @Test
-    public void WhenFindAllLogsSortedBySeverityEnum_ReturnAllLogsSortedBySeverityEnum(){
+    public void WhenFindAllLogsSortedBySeverity_ReturnAllLogsSortedBySeverity(){
         List<Log> logsSorted = logs.stream()
                 .sorted(Comparator.comparing(l -> l.getLogDetail().getSeverity()))
                 .collect(Collectors.toList());
@@ -164,7 +164,7 @@ public class LogServiceTest {
     }
 
     @Test
-    public void WhenFindAllLogsByOriginSortedBySeverityEnum_ReturnAllLogsFilteredByOriginAndSortedBySeverityEnum(){
+    public void WhenFindAllLogsByOriginSortedBySeverity_ReturnAllLogsFilteredByOriginAndSortedBySeverity(){
         List<Log> logsFilteredAndSorted = Arrays.asList(logs.get(1), logs.get(4))
                 .stream()
                 .sorted(Comparator.comparing(l -> l.getLogDetail().getSeverity()))
@@ -179,7 +179,7 @@ public class LogServiceTest {
     }
 
     @Test
-    public void WhenFindAllLogsByDetailsSortedBySeverityEnum_ReturnAllLogsFilteredByDetailsAndSortedBySeverityEnum(){
+    public void WhenFindAllLogsByDetailsSortedBySeverity_ReturnAllLogsFilteredByDetailsAndSortedBySeverity(){
         List<Log> logsFilteredAndSorted = Arrays.asList(logs.get(0), logs.get(1))
                 .stream()
                 .sorted(Comparator.comparing(l -> l.getLogDetail().getSeverity()))
@@ -200,17 +200,17 @@ public class LogServiceTest {
                 .logDetail(LogDetail.builder()
                         .message("Message")
                         .details("Details")
-                        .severity(SeverityEnum.DEBUG)
+                        .severity(Severity.DEBUG)
                         .build())
                 .origin(Origin.builder()
                         .origin("localhost")
-                        .environment(EnvironmentEnum.DEV)
+                        .environment(Environment.DEV)
                         .build())
                 .reportedBy(new User())
                 .build();
     }
 
-    private Log createLog(SeverityEnum severity, String origin, EnvironmentEnum environment, String logDetail) {
+    private Log createLog(Severity severity, String origin, Environment environment, String logDetail) {
         return Log.builder()
                 .archived(false)
                 .hash(1)
@@ -228,3 +228,50 @@ public class LogServiceTest {
     }
 
 }
+
+//package dev.codenation.logs.service;
+//
+//import dev.codenation.logs.domain.entity.Log;
+//import dev.codenation.logs.repository.LogRepository;
+//import org.hamcrest.Matchers;
+//import org.junit.Test;
+//import org.junit.runner.RunWith;
+//import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.boot.test.context.SpringBootTest;
+//import org.springframework.boot.test.mock.mockito.MockBean;
+//import org.springframework.test.context.junit4.SpringRunner;
+//
+//import java.util.Optional;
+//import java.util.UUID;
+//
+//import static org.junit.Assert.assertThat;
+//import static org.mockito.Mockito.when;
+//
+//@RunWith(SpringRunner.class)
+//@SpringBootTest
+//
+//public class LogServiceTest {
+//
+//    @Autowired
+//    private LogService service;
+//
+//    @MockBean
+//    private LogRepository repository;
+//
+//    @Test
+//    public void abc() {
+//        UUID uuid = UUID.randomUUID();
+//        when(repository.findById(uuid)).thenReturn(Optional.of(getLog()));
+//
+//        Optional<Log> result = service.findById(uuid);
+//
+//        assertThat(result.get(), Matchers.notNullValue());
+//
+//    }
+//
+//    private Log getLog() {
+//        return new Log();
+//    }
+//
+//}
+

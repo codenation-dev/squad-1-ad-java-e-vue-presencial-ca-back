@@ -1,7 +1,6 @@
 package dev.codenation.logs.dto.request;
-
-import dev.codenation.logs.domain.enums.EnvironmentEnum;
-import dev.codenation.logs.domain.enums.SeverityEnum;
+import dev.codenation.logs.domain.enums.Environment;
+import dev.codenation.logs.domain.enums.Severity;
 import lombok.Builder;
 import lombok.Data;
 
@@ -19,9 +18,9 @@ public class LogFilterRequestDTO {
 
     private String details;
 
-    private SeverityEnum severity;
+    private Severity severity;
 
-    private EnvironmentEnum environment;
+    private Environment environment;
 
     private String origin;
 

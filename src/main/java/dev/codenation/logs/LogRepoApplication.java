@@ -10,7 +10,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableJpaAuditing
 @SpringBootApplication
 @EnableSwagger2
-@ApiIgnore
 public class LogRepoApplication {
 
     public static void main(String[] args) {

@@ -1,11 +1,11 @@
 package dev.codenation.logs.mapper;
 
 import dev.codenation.logs.domain.entity.Log;
+import dev.codenation.logs.dto.request.LogCreationDTO;
 import dev.codenation.logs.dto.request.LogFilterRequestDTO;
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
-import org.mapstruct.Mappings;
-import org.mapstruct.ReportingPolicy;
+import dev.codenation.logs.dto.response.AllLogSummaryResponseDTO;
+import dev.codenation.logs.dto.response.LogSumaryResponseDTO;
+import org.mapstruct.*;
 
 import java.util.List;
 
@@ -26,5 +26,48 @@ public interface LogMapper {
     })
     Log map(LogFilterRequestDTO filter);
 
-    List<Log> map(List<LogFilterRequestDTO> filter);
+    @Mappings({
+            @Mapping(source = "hash", target = "hash"),
+            @Mapping(source = "message", target = "logDetail.message"),
+            @Mapping(source = "details", target = "logDetail.details"),
+            @Mapping(source = "severity", target = "logDetail.severity"),
+            @Mapping(source = "environment", target = "origin.environment"),
+            @Mapping(source = "origin", target = "origin.origin"),
+            @Mapping(source = "reportedBy.id", target = "reportedBy.id")
+    })
+    Log map(LogCreationDTO logCreationDTO);
+
+    @Mappings({
+            @Mapping(source = "id", target = "id"),
+            @Mapping(source = "hash", target = "hash"),
+            @Mapping(source = "logDetail.message", target = "message"),
+            @Mapping(source = "logDetail.details", target = "details"),
+            @Mapping(source = "logDetail.severity", target = "severity"),
+            @Mapping(source = "origin", target = "origin"),
+            @Mapping(source = "archived", target = "archived"),
+            @Mapping(source = "archivedBy.id", target = "archivedBy.id"),
+            @Mapping(source = "reportedBy.id", target = "reportedBy.id")
+    })
+    @Named("toDto")
+    AllLogSummaryResponseDTO map(Log log);
+
+    @Mappings({
+            @Mapping(source = "id", target = "id"),
+            @Mapping(source = "hash", target = "hash"),
+            @Mapping(source = "logDetail.message", target = "message"),
+            @Mapping(source = "logDetail.details", target = "details"),
+            @Mapping(source = "logDetail.severity", target = "severity"),
+            @Mapping(source = "origin", target = "origin"),
+            @Mapping(source = "archived", target = "archived"),
+            @Mapping(source = "archivedBy.id", target = "archivedBy.id"),
+            @Mapping(source = "reportedBy.id", target = "reportedBy.id")
+    })
+    AllLogSummaryResponseDTO map(@MappingTarget AllLogSummaryResponseDTO dto, Log parent);
+
+    @IterableMapping(qualifiedByName = "toDto")
+    List<AllLogSummaryResponseDTO> map(List<Log> children);
+
+    static List<AllLogSummaryResponseDTO> map(List<Log> children, Log parent) {
+        throw new UnsupportedOperationException("Not implemented");
+    }
 }

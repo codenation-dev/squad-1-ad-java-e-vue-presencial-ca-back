@@ -17,7 +17,7 @@ public class RevokeTokensController {
     ConsumerTokenServices tokenServices;
 
 
-    @RequestMapping(method = RequestMethod.DELETE,value = "oauth/logout")
+    @RequestMapping(method = RequestMethod.GET,value = "oauth/logout")
     @ResponseBody
     public void revokeToken(HttpServletRequest request){
         String auth = request.getHeader("Authorization");
