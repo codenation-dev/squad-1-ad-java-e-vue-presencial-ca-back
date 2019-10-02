@@ -20,6 +20,7 @@ import java.io.Serializable;
 public class LogDetail implements Serializable {
 
     @NotNull
+    @Max(2000)
     private String message;
 
     @NotNull
