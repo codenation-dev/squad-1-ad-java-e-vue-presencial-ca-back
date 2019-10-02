@@ -1,5 +1,6 @@
 package dev.codenation.logs.mapper;
 
+import dev.codenation.logs.auth.WebSecurityConfig;
 import dev.codenation.logs.domain.entity.User;
 import dev.codenation.logs.dto.request.UserFilterRequestDTO;
 import dev.codenation.logs.dto.request.UserRequestDTO;
@@ -20,19 +21,21 @@ public class UserMapperTest {
     private UserMapper mapper;
 
     @Test
-    public void WhenMapUserRequestDTO_ReturnUser(){
+    public void WhenMapUserRequestDTO_ReturnUser() {
         UserRequestDTO request = createUserRequestDTO();
 
         User user = mapper.map(request);
 
+        Boolean matches = WebSecurityConfig.cryptPasswordEncoder().matches("Password", user.getPassword());
+
         assertThat(user.getEmail(), Matchers.equalTo("test@test.com"));
         assertThat(user.getFirstName(), Matchers.equalTo("User"));
         assertThat(user.getLastName(), Matchers.equalTo("Test"));
-        assertThat(user.getPassword(), Matchers.equalTo("Password"));
+        assertThat(matches, Matchers.equalTo(Boolean.TRUE));
     }
 
     @Test
-    public void WhenMapUserFilterRequestDTO_ReturnUser(){
+    public void WhenMapUserFilterRequestDTO_ReturnUser() {
         UserFilterRequestDTO request = createUserFilterRequestDTO();
 
         User user = mapper.map(request);
@@ -42,7 +45,7 @@ public class UserMapperTest {
         assertThat(user.getLastName(), Matchers.equalTo("Test"));
     }
 
-    private UserRequestDTO createUserRequestDTO(){
+    private UserRequestDTO createUserRequestDTO() {
         return UserRequestDTO.builder()
                 .email("test@test.com")
                 .firstName("User")
@@ -51,7 +54,7 @@ public class UserMapperTest {
                 .build();
     }
 
-    private UserFilterRequestDTO createUserFilterRequestDTO(){
+    private UserFilterRequestDTO createUserFilterRequestDTO() {
         return UserFilterRequestDTO.builder()
                 .email("test@test.com")
                 .firstName("User")

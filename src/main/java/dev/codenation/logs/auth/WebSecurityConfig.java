@@ -1,4 +1,4 @@
-package dev.codenation.logs.authentication;
+package dev.codenation.logs.auth;
 
 
 import dev.codenation.logs.domain.entity.User;
@@ -41,7 +41,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .build());
         }
         auth.userDetailsService(userLogin -> new UserAuth(repository.findByEmail(userLogin)));
-
     }
 
     @Override
@@ -86,11 +85,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return authenticationManagerBean();
     }
 
-    @Bean
-    public static Pbkdf2PasswordEncoder cryptPasswordEncoder(){
+     @Bean
+    public static Pbkdf2PasswordEncoder cryptPasswordEncoder() {
         Pbkdf2PasswordEncoder pbkdf2PasswordEncoder = new Pbkdf2PasswordEncoder();
         pbkdf2PasswordEncoder.setAlgorithm(Pbkdf2PasswordEncoder.SecretKeyFactoryAlgorithm.PBKDF2WithHmacSHA256);
         return pbkdf2PasswordEncoder;
     }
-
 }

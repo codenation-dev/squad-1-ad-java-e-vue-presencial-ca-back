@@ -34,7 +34,7 @@ public class LogMapperTest {
         Log log = mapper.map(request);
 
         assertThat(log.getId(), Matchers.equalTo(id_log));
-        assertThat(log.getHash().toString(), Matchers.equalTo("-1072592350"));
+        assertThat(log.getHash().toString(), Matchers.equalTo("-1675388953"));
         assertThat(log.getLogDetail().getDetails(), Matchers.equalTo("Details"));
         assertThat(log.getArchived(), Matchers.equalTo(Boolean.TRUE));
         assertThat(log.getArchivedBy().getId(), Matchers.equalTo(id_user));
