@@ -1,71 +1,53 @@
-//package dev.codenation.logs.mapper;
-//
-//import dev.codenation.logs.authentication.AuthorizationServerConfig;
-//import dev.codenation.logs.authentication.WebSecurityConfig;
-//import dev.codenation.logs.domain.entity.User;
-//import dev.codenation.logs.dto.request.UserFilterRequestDTO;
-//import dev.codenation.logs.dto.request.UserRequestDTO;
-//import org.hamcrest.Matchers;
-//import org.junit.Test;
-//import org.junit.runner.RunWith;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.boot.test.context.SpringBootTest;
-//import org.springframework.boot.test.mock.mockito.MockBean;
-//import org.springframework.test.context.junit4.SpringRunner;
-//
-//import static org.junit.Assert.assertThat;
-//
-//@RunWith(SpringRunner.class)
-//@SpringBootTest
-//public class UserMapperTest {
-//
-//    @MockBean
-//    private AuthorizationServerConfig config;
-//
-//    @MockBean
-//    private WebSecurityConfig securityConfig;
-//
-//    @Autowired
-//    private UserMapper mapper;
-//
-//    @Test
-//    public void WhenMapUserRequestDTO_ReturnUser(){
-//        UserRequestDTO request = createUserRequestDTO();
-//
-//        User user = mapper.map(request);
-//
-//        assertThat(user.getEmail(), Matchers.equalTo("test@test.com"));
-//        assertThat(user.getFirstName(), Matchers.equalTo("User"));
-//        assertThat(user.getLastName(), Matchers.equalTo("Test"));
-//        assertThat(user.getPassword(), Matchers.equalTo("Password"));
-//    }
-//
-//    @Test
-//    public void WhenMapUserFilterRequestDTO_ReturnUser(){
-//        UserFilterRequestDTO request = createUserFilterRequestDTO();
-//
-//        User user = mapper.map(request);
-//
-//        assertThat(user.getEmail(), Matchers.equalTo("test@test.com"));
-//        assertThat(user.getFirstName(), Matchers.equalTo("User"));
-//        assertThat(user.getLastName(), Matchers.equalTo("Test"));
-//    }
-//
-//    private UserRequestDTO createUserRequestDTO(){
-//        return UserRequestDTO.builder()
-//                .email("test@test.com")
-//                .firstName("User")
-//                .lastName("Test")
-//                .password("Password")
-//                .build();
-//    }
-//
-//    private UserFilterRequestDTO createUserFilterRequestDTO(){
-//        return UserFilterRequestDTO.builder()
-//                .email("test@test.com")
-//                .firstName("User")
-//                .lastName("Test")
-//                .build();
-//    }
-//
-//}
+package dev.codenation.logs.mapper;
+
+import dev.codenation.logs.domain.entity.User;
+import dev.codenation.logs.dto.request.UserFilterRequestDTO;
+import dev.codenation.logs.dto.request.UserRequestDTO;
+import dev.codenation.logs.util.UserFilterRequestDTOUtil;
+import dev.codenation.logs.util.UserRequestDTOUtil;
+import net.bytebuddy.asm.Advice;
+import org.hamcrest.Matchers;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import static org.junit.Assert.assertThat;
+
+@RunWith(SpringRunner.class)
+@SpringBootTest
+public class UserMapperTest {
+
+        @Autowired
+        private UserMapper mapper;
+
+        @Autowired
+        private UserFilterRequestDTOUtil userFilterRequestDTOUtil;
+
+        @Autowired
+        private UserRequestDTOUtil userRequestDTOUtil;
+
+        @Test
+        public void WhenMapUserRequestDTO_ReturnUser(){
+            UserRequestDTO request = userRequestDTOUtil.createUserRequestDTO();
+
+            User user = mapper.map(request);
+
+            assertThat(user.getEmail(), Matchers.equalTo("test@test.com"));
+            assertThat(user.getFirstName(), Matchers.equalTo("User"));
+            assertThat(user.getLastName(), Matchers.equalTo("Test"));
+            assertThat(user.getPassword(), Matchers.equalTo("Password"));
+        }
+
+        @Test
+        public void WhenMapUserFilterRequestDTO_ReturnUser(){
+            UserFilterRequestDTO request = userFilterRequestDTOUtil.createUserFilterRequestDTO();
+
+            User user = mapper.map(request);
+
+            assertThat(user.getEmail(), Matchers.equalTo("test@test.com"));
+            assertThat(user.getFirstName(), Matchers.equalTo("User"));
+            assertThat(user.getLastName(), Matchers.equalTo("Test"));
+        }
+}
