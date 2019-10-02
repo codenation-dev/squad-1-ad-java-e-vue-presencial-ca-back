@@ -41,7 +41,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .build());
         }
         auth.userDetailsService(userLogin -> new UserAuth(repository.findByEmail(userLogin)));
-
     }
 
     @Override
@@ -86,10 +85,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return authenticationManagerBean();
     }
 
-//    @Bean
-//    public static BCryptPasswordEncoder cryptPasswordEncoder() {
-//        return new BCryptPasswordEncoder();
-//    }
      @Bean
     public static Pbkdf2PasswordEncoder cryptPasswordEncoder() {
         Pbkdf2PasswordEncoder pbkdf2PasswordEncoder = new Pbkdf2PasswordEncoder();
