@@ -13,8 +13,8 @@ import java.util.UUID;
 @Builder
 public class UserRequestDTO {
 
-    @GeneratedValue(strategy = GenerationType.IDENTITY,generator = "uuid2")
-    @GenericGenerator(name = "uuid2",strategy = "uuid2")
+    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "uuid2")
+    @GenericGenerator(name = "uuid2", strategy = "uuid2")
     private UUID id;
     private String firstName;
     private String lastName;
