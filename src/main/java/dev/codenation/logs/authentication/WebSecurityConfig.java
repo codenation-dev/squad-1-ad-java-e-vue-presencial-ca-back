@@ -2,7 +2,7 @@ package dev.codenation.logs.authentication;
 
 
 import dev.codenation.logs.domain.entity.User;
-import dev.codenation.logs.domain.VO.UserAuth;
+import dev.codenation.logs.domain.vo.UserAuth;
 import dev.codenation.logs.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
@@ -41,7 +41,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .password(cryptPasswordEncoder().encode("SenhaMestra"))
                     .build());
         }
-        auth.userDetailsService(userLogin -> new UserAuth(repository.findByEmail(userLogin)));
+        auth.userDetailsService(repository::findByEmail).passwordEncoder(cryptPasswordEncoder());
 
     }
 

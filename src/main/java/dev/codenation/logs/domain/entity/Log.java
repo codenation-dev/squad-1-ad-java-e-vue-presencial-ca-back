@@ -2,19 +2,19 @@ package dev.codenation.logs.domain.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-import dev.codenation.logs.domain.VO.LogDetail;
-import dev.codenation.logs.domain.VO.Origin;
+import dev.codenation.logs.domain.vo.LogDetail;
+import dev.codenation.logs.domain.vo.Origin;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import org.hibernate.annotations.GenericGenerator;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -27,7 +27,8 @@ import java.util.UUID;
 public class Log {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "uuid2")
+    @GenericGenerator(name = "uuid2", strategy = "uuid2")
     private UUID id;
 
     @NotNull
@@ -60,7 +61,4 @@ public class Log {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
     private LocalDateTime createdAt;
 
-    public void setHash(Object value){
-       this.hash = this.getLogDetail().getDetails().hashCode();
-    }
 }

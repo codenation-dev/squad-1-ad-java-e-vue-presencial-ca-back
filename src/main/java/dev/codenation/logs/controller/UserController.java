@@ -1,17 +1,18 @@
 package dev.codenation.logs.controller;
 
 import dev.codenation.logs.domain.entity.User;
-import dev.codenation.logs.dto.request.UserFilterRequestDTO;
+import dev.codenation.logs.domain.vo.UserInformation;
 import dev.codenation.logs.dto.request.UserRequestDTO;
+import dev.codenation.logs.exception.message.user.UserNotFoundException;
 import dev.codenation.logs.mapper.UserMapper;
 import dev.codenation.logs.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 import java.util.UUID;
 
 @AllArgsConstructor
@@ -32,8 +33,19 @@ public class UserController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public Page<User> findAll(UserFilterRequestDTO filter) {
-        return service.findAll(filter);
+    public List<UserInformation> findAll() {
+        return service.findAllInList();
+    }
+
+    @GetMapping(value = "/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public UserInformation findUser(@PathVariable UUID id) throws UserNotFoundException {
+        return service.getUserInformation(id);
+    }
+
+    @GetMapping(value = "/info")
+    public UserInformation getUserInfo(){
+        return service.getUserInformation();
     }
 
     @PatchMapping("/{id}")

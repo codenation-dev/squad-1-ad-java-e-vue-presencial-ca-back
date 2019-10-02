@@ -1,6 +1,7 @@
 package dev.codenation.logs.domain.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import dev.codenation.logs.domain.vo.UserAuth;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -24,7 +25,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @EntityListeners(AuditingEntityListener.class)
 @Entity(name = "users")
-public class User {
+public class User extends UserAuth {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY,generator = "uuid2")
