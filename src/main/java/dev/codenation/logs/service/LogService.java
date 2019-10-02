@@ -7,6 +7,7 @@ import dev.codenation.logs.dto.request.LogCreationDTO;
 import dev.codenation.logs.dto.request.LogFilterRequestDTO;
 import dev.codenation.logs.dto.response.AllLogSummaryResponseDTO;
 import dev.codenation.logs.dto.response.LogSumaryResponseDTO;
+import dev.codenation.logs.exception.message.log.LogNotFoundException;
 import dev.codenation.logs.mapper.LogMapper;
 import dev.codenation.logs.repository.LogRepository;
 import dev.codenation.logs.repository.UserRepository;
@@ -77,5 +78,9 @@ public class LogService extends AbstractService<LogRepository, Log, UUID> {
         logCreationDTO.setHash(logCreationDTO.getMessage().hashCode());
         logCreationDTO.setReportedBy(userService.getUserInformation());
        return repository.save(mapper.map(logCreationDTO));
+    }
+
+    public AllLogSummaryResponseDTO findOneById(UUID id) throws LogNotFoundException {
+        return mapper.map(repository.findById(id).orElseThrow(LogNotFoundException::new));
     }
 }

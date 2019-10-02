@@ -1,5 +1,6 @@
 package dev.codenation.logs.service;
 
+import dev.codenation.logs.exception.message.log.LogNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.*;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -13,7 +14,7 @@ public abstract class AbstractService<R extends JpaRepository<T, ID>, T, ID> {
 
     protected JpaRepository repository;
 
-    public Optional<T> findById(UUID id) {
+    public Optional<T> findById(UUID id) throws LogNotFoundException {
         return repository.findById(id);
     }
 

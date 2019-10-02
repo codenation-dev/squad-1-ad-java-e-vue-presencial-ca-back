@@ -27,8 +27,8 @@ public class LogController {
     private LogService logService;
 
     @GetMapping("/{logId}")
-    public Log findById(@PathVariable UUID logId) throws LogNotFoundException {
-        return logService.findById(logId).orElseThrow(LogNotFoundException::new);
+    public AllLogSummaryResponseDTO findById(@PathVariable UUID logId) throws LogNotFoundException {
+        return logService.findOneById(logId);
     }
 
 //    @GetMapping

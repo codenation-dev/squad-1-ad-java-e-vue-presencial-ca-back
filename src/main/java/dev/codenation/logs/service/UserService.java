@@ -3,6 +3,7 @@ package dev.codenation.logs.service;
 import dev.codenation.logs.domain.entity.User;
 import dev.codenation.logs.domain.vo.UserAuth;
 import dev.codenation.logs.domain.vo.UserInformation;
+import dev.codenation.logs.exception.message.log.LogNotFoundException;
 import dev.codenation.logs.exception.message.user.UserNotFoundException;
 import dev.codenation.logs.mapper.UserMapper;
 import dev.codenation.logs.repository.UserRepository;
@@ -40,16 +41,16 @@ public class UserService extends AbstractService<UserRepository, User, UUID>{
     }
 
     public UserInformation getUserInformation() {
-        return mapper.map(getUserFromUserAuth());
+        return mapper.mapInf(getUserFromUserAuth());
     }
 
     private User getUserFromUserAuth() {
         UserAuth principal = (UserAuth) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        return userRepository.findUserByEmail
+        return userRepository.findByEmail
                 (principal.getUsername());
     }
 
-    public UserInformation getUserInformation(UUID id) throws UserNotFoundException {
+    public UserInformation getUserInformation(UUID id) throws UserNotFoundException, LogNotFoundException {
         return mapper.mapInf(findById(id).orElseThrow(UserNotFoundException::new));
     }
 }

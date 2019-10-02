@@ -10,6 +10,6 @@ import java.util.UUID;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, UUID> {
-    UserAuth findByEmail(String userLogin);
-    User findUserByEmail(String userLogin);
+//    UserAuth findByEmail(String userLogin);
+    User findByEmail(String userLogin);
 }
