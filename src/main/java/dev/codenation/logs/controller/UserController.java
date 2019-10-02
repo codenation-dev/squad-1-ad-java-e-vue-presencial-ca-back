@@ -25,7 +25,7 @@ public class UserController {
     @Autowired
     private UserMapper mapper;
 
-    @PostMapping("")
+    @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public void createUser(@Valid @RequestBody User user) {
         service.save(user);

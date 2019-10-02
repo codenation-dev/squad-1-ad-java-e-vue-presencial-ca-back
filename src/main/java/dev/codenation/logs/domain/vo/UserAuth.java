@@ -1,23 +1,22 @@
 package dev.codenation.logs.domain.vo;
 
 import dev.codenation.logs.domain.entity.User;
+import lombok.Data;
 import org.springframework.security.core.AuthenticatedPrincipal;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 
 import java.util.Collection;
 
-public class UserAuth implements AuthenticatedPrincipal,UserDetails {
+@Data
+public class UserAuth implements UserDetails {
 
     private String login;
 
     private String password;
 
-    public UserAuth(User user) {
-        this.login = user.getEmail();
-        this.password = user.getPassword();
-    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -26,12 +25,12 @@ public class UserAuth implements AuthenticatedPrincipal,UserDetails {
 
     @Override
     public String getPassword() {
-        return this.password;
+        return password;
     }
 
     @Override
     public String getUsername() {
-        return this.login;
+        return login;
     }
 
     @Override
@@ -54,8 +53,4 @@ public class UserAuth implements AuthenticatedPrincipal,UserDetails {
         return true;
     }
 
-    @Override
-    public String getName() {
-        return null;
-    }
 }
