@@ -23,10 +23,7 @@ public class UserService extends AbstractService<UserRepository, User, UUID>{
 
     @Override
     public User save(User user) {
-        if (!user.getPassword().isEmpty()) {
-            user.setPassword(user.getPassword());
-        }
-        return (User) repository.save(user);
+          return (User) repository.save(user);
     }
 
     public Page<User> findAll(UserFilterRequestDTO filter) {
