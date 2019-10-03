@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 import java.io.IOException;
 
 @Component
-public class UserRequestDTOUtil {
+public class UserRequestDTOUtil extends AbstractUtil{
 
     public UserRequestDTO createUserRequestDTO(){
         return UserRequestDTO.builder()

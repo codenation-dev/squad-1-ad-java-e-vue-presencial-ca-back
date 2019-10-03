@@ -9,7 +9,7 @@ import dev.codenation.logs.domain.valueObject.Origin;
 import org.springframework.stereotype.Component;
 
 @Component
-public class LogUtil {
+public class LogUtil extends AbstractUtil{
 
     public Log createLog() {
         return Log.builder()
@@ -44,5 +44,6 @@ public class LogUtil {
                 .reportedBy(new User())
                 .build();
     }
+
 
 }

@@ -109,8 +109,9 @@ public class UserControllerTest {
 
         userList.andExpect(status().isOk())
                 .andExpect(jsonPath("$.[0].firstName", is("Admin")))
-                .andExpect(jsonPath("$.[1].firstName", is("joao")))
-                .andExpect(jsonPath("$.[2].firstName", is("maria")));
+                .andExpect(jsonPath("$.[1].firstName", is("User")))
+                .andExpect(jsonPath("$.[2].firstName", is("joao")))
+                .andExpect(jsonPath("$.[3].firstName", is("maria")));
 
     }
 }
