@@ -3,22 +3,10 @@ package dev.codenation.logs.util;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import dev.codenation.logs.core.dto.request.UserFilterRequestDTO;
-import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 
-@Component
-public class UserFilterRequestDTOUtil extends AbstractUtil{
-
-    public UserFilterRequestDTO createUserFilterRequestDTO(){
-        return UserFilterRequestDTO.builder()
-                .email("test@test.com")
-                .firstName("User")
-                .lastName("Test")
-                .build();
-    }
-
+public class AbstractUtil {
 
     public static byte[] convertObjectToJsonBytes(Object object) throws IOException {
         ObjectMapper mapper = new ObjectMapper();

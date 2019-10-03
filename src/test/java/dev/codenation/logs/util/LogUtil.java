@@ -4,12 +4,12 @@ import dev.codenation.logs.domain.entity.Log;
 import dev.codenation.logs.domain.entity.User;
 import dev.codenation.logs.domain.enums.Environment;
 import dev.codenation.logs.domain.enums.Severity;
-import dev.codenation.logs.domain.vo.LogDetail;
-import dev.codenation.logs.domain.vo.Origin;
+import dev.codenation.logs.domain.valueObject.LogDetail;
+import dev.codenation.logs.domain.valueObject.Origin;
 import org.springframework.stereotype.Component;
 
 @Component
-public class LogUtil {
+public class LogUtil extends AbstractUtil{
 
     public Log createLog() {
         return Log.builder()
@@ -44,5 +44,6 @@ public class LogUtil {
                 .reportedBy(new User())
                 .build();
     }
+
 
 }
