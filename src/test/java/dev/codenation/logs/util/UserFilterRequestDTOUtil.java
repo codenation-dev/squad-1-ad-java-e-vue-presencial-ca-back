@@ -4,7 +4,7 @@ import dev.codenation.logs.dto.request.UserFilterRequestDTO;
 import org.springframework.stereotype.Component;
 
 @Component
-public class UserFilterRequestDTOUtil {
+public class UserFilterRequestDTOUtil extends AbstractUtil{
 
     public UserFilterRequestDTO createUserFilterRequestDTO(){
         return UserFilterRequestDTO.builder()
