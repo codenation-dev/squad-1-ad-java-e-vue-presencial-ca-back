@@ -1,6 +1,7 @@
 package dev.codenation.logs.domain.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import dev.codenation.logs.auth.WebSecurityConfig;
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
@@ -49,16 +50,20 @@ public class User {
     @OneToMany(mappedBy = "reportedBy")
     private List<Log> logs;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "archivedBy")
     private List<Log> archivedLogs;
 
-    @CreatedDate
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
-    private LocalDateTime createdAt;
+    @Builder.Default
+    private Boolean active = true;
 
     @LastModifiedDate
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
     private LocalDateTime updatedAt;
+
+    @CreatedDate
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
+    private LocalDateTime createdAt;
 
     public void setPassword(String value){
         this.password = new WebSecurityConfig().cryptPasswordEncoder().encode(value);

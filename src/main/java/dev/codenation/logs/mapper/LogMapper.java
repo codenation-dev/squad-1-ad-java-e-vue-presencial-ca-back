@@ -26,7 +26,6 @@ public interface LogMapper {
     Log map(LogFilterRequestDTO filter);
 
     @Mappings({
-            @Mapping(source = "hash", target = "hash"),
             @Mapping(source = "message", target = "logDetail.message"),
             @Mapping(source = "details", target = "logDetail.details"),
             @Mapping(source = "severity", target = "logDetail.severity"),

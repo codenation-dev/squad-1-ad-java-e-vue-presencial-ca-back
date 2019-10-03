@@ -33,7 +33,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth, UserRepository repository) throws Exception {
         if (repository.count() == 0) {
             repository.save(User.builder()
-                    .email("admin@squad.one.arrebenta.com.br")
+                    .email("admin@logsone.com")
                     .firstName("Admin")
                     .lastName("2.0")
                     .id(UUID.randomUUID())

@@ -4,7 +4,6 @@ import dev.codenation.logs.domain.entity.User;
 import dev.codenation.logs.domain.vo.UserAuth;
 import dev.codenation.logs.domain.vo.UserInformation;
 import dev.codenation.logs.dto.request.UserRequestDTO;
-import dev.codenation.logs.exception.message.log.LogNotFoundException;
 import dev.codenation.logs.exception.message.user.UserNotFoundException;
 import dev.codenation.logs.mapper.UserMapper;
 import dev.codenation.logs.repository.UserRepository;
@@ -13,6 +12,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -30,7 +30,7 @@ public class UserService extends AbstractService<UserRepository, User, UUID> {
     }
 
     public User save(UserRequestDTO dto) {
-        return (User) repository.save(mapper.map(dto));
+        return (User) repository.saveAndFlush(mapper.map(dto));
     }
 
     public List<UserInformation> findAllInList() {
@@ -47,7 +47,15 @@ public class UserService extends AbstractService<UserRepository, User, UUID> {
                 (principal.getUsername());
     }
 
-    public UserInformation getUserInformation(UUID id) throws UserNotFoundException, LogNotFoundException {
+    public UserInformation getUserInformation(UUID id) throws UserNotFoundException {
         return mapper.mapInf(findById(id).orElseThrow(UserNotFoundException::new));
+    }
+
+    public UserInformation delete(UUID userId) throws UserNotFoundException {
+        Optional<User> user = repository.findById(userId);
+        return user.map(u -> {
+            u.setActive(false);
+            return mapper.mapInf(u);
+        }).orElseThrow(UserNotFoundException::new);
     }
 }
