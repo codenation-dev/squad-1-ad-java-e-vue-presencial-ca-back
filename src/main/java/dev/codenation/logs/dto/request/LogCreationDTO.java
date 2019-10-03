@@ -1,5 +1,7 @@
 package dev.codenation.logs.dto.request;
 
+import dev.codenation.logs.domain.enums.Environment;
+import dev.codenation.logs.domain.enums.Severity;
 import dev.codenation.logs.domain.vo.UserInformation;
 import lombok.Getter;
 import lombok.Setter;
@@ -10,8 +12,6 @@ import javax.validation.constraints.NotNull;
 @Setter
 public class LogCreationDTO {
 
-    private Integer hash;
-
     @NotNull
     private String message;
 
@@ -19,17 +19,16 @@ public class LogCreationDTO {
     private String details;
 
     @NotNull
-    private String severity;
+    private Severity severity;
 
     @NotNull
     private String origin;
 
     @NotNull
-    private String environment;
+    private Environment environment;
 
     private Boolean archived = false;
 
     @NotNull
     private UserInformation reportedBy;
-
 }

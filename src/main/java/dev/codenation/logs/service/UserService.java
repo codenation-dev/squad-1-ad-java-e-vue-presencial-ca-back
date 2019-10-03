@@ -30,7 +30,7 @@ public class UserService extends AbstractService<UserRepository, User, UUID> {
     }
 
     public User save(UserRequestDTO dto) {
-        return (User) repository.save(mapper.map(dto));
+        return (User) repository.saveAndFlush(mapper.map(dto));
     }
 
     public List<UserInformation> findAllInList() {
@@ -51,11 +51,11 @@ public class UserService extends AbstractService<UserRepository, User, UUID> {
         return mapper.mapInf(findById(id).orElseThrow(UserNotFoundException::new));
     }
 
-    public UserInformation delete(UUID userId) {
+    public UserInformation delete(UUID userId) throws UserNotFoundException {
         Optional<User> user = repository.findById(userId);
         return user.map(u -> {
             u.setActive(false);
             return mapper.mapInf(u);
-        }).orElse(null);
+        }).orElseThrow(UserNotFoundException::new);
     }
 }
