@@ -45,8 +45,8 @@ public class UserController {
         return service.getUserInformation(id);
     }
 
-    @GetMapping(value = "/info")
-    public UserInformation getUserInfo() {
+    @GetMapping(value = "/me")
+    public UserInformation me() {
         return service.getUserInformation();
     }
 
@@ -59,8 +59,9 @@ public class UserController {
         return service.save(mapper.map(user));
     }
 
-    @GetMapping("/me")
-    public User me() {
-        return (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    @DeleteMapping(value = "/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public UserInformation delete(@PathVariable UUID id) throws UserNotFoundException {
+        return service.delete(id);
     }
 }
