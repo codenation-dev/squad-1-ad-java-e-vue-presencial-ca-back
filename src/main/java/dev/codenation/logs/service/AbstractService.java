@@ -14,7 +14,7 @@ public abstract class AbstractService<R extends JpaRepository<T, ID>, T, ID> {
 
     protected JpaRepository repository;
 
-    public Optional<T> findById(UUID id) throws LogNotFoundException {
+    public Optional<T> findById(UUID id) {
         return repository.findById(id);
     }
 

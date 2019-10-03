@@ -6,11 +6,10 @@ import org.springframework.security.core.AuthenticatedPrincipal;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-
 import java.util.Collection;
 
 @Data
-public class UserAuth implements AuthenticatedPrincipal,UserDetails {
+public class UserAuth implements AuthenticatedPrincipal, UserDetails {
 
     private String login;
 

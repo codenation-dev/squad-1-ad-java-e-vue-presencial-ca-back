@@ -10,6 +10,7 @@ import dev.codenation.logs.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -28,8 +29,8 @@ public class UserController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void createUser(@Valid @RequestBody User user) {
-        service.save(user);
+    public User createUser(@Valid @RequestBody UserRequestDTO user) {
+        return service.save(user);
     }
 
     @GetMapping
@@ -44,17 +45,23 @@ public class UserController {
         return service.getUserInformation(id);
     }
 
-    @GetMapping(value = "/info")
-    public UserInformation getUserInfo(){
+    @GetMapping(value = "/me")
+    public UserInformation me() {
         return service.getUserInformation();
     }
 
     @PatchMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public User patch(@PathVariable UUID id, @RequestBody UserRequestDTO user) throws Exception {
-        if(id.equals(user.getId())){
+        if (id.equals(user.getId())) {
             throw new Exception(); //ToDo criar exceção
         }
         return service.save(mapper.map(user));
+    }
+
+    @DeleteMapping(value = "/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public UserInformation delete(@PathVariable UUID id) throws UserNotFoundException {
+        return service.delete(id);
     }
 }

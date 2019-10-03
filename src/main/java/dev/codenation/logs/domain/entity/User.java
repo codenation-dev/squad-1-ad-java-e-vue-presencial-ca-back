@@ -1,7 +1,8 @@
 package dev.codenation.logs.domain.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import dev.codenation.logs.domain.vo.UserAuth;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import dev.codenation.logs.auth.WebSecurityConfig;
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.data.annotation.CreatedDate;
@@ -41,23 +42,30 @@ public class User {
     @NotNull
     @Email
     @Size(max = 250)
+    @Column(unique=true)
     private String email;
 
-    @NotNull
-    @Size(max = 100)
     private String password;
 
     @OneToMany(mappedBy = "reportedBy")
     private List<Log> logs;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "archivedBy")
     private List<Log> archivedLogs;
+
+    @Builder.Default
+    private Boolean active = true;
+
+    @LastModifiedDate
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
+    private LocalDateTime updatedAt;
 
     @CreatedDate
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
     private LocalDateTime createdAt;
 
-    @LastModifiedDate
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
-    private LocalDateTime updatedAt;
+    public void setPassword(String value){
+        this.password = new WebSecurityConfig().cryptPasswordEncoder().encode(value);
+    }
 }
