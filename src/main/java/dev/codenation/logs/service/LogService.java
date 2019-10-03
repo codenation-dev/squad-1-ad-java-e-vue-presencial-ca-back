@@ -58,9 +58,8 @@ public class LogService extends AbstractService<LogRepository, Log, UUID> {
     }
 
     public Log save(LogCreationDTO logCreationDTO){
-        logCreationDTO.setHash(logCreationDTO.getMessage().hashCode());
         logCreationDTO.setReportedBy(userService.getUserInformation());
-        return repository.save(mapper.map(logCreationDTO));
+        return repository.saveAndFlush(mapper.map(logCreationDTO));
     }
 
     public LogResponseDTO findOneById(UUID id) throws LogNotFoundException {
