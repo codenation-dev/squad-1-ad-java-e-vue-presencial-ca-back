@@ -2,7 +2,7 @@ package dev.codenation.logs.util;
 
 import dev.codenation.logs.domain.enums.Environment;
 import dev.codenation.logs.domain.enums.Severity;
-import dev.codenation.logs.dto.request.LogFilterRequestDTO;
+import dev.codenation.logs.core.dto.request.LogFilterRequestDTO;
 import org.springframework.stereotype.Component;
 
 import java.util.UUID;
