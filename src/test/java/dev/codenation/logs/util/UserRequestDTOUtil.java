@@ -3,7 +3,7 @@ package dev.codenation.logs.util;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import dev.codenation.logs.dto.request.UserRequestDTO;
+import dev.codenation.logs.core.dto.request.UserRequestDTO;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;

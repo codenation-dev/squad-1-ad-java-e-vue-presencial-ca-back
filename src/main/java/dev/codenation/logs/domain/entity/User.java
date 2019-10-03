@@ -2,7 +2,7 @@ package dev.codenation.logs.domain.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import dev.codenation.logs.auth.WebSecurityConfig;
+import dev.codenation.logs.api.auth.WebSecurityConfig;
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.data.annotation.CreatedDate;
