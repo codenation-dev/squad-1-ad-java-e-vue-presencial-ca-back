@@ -43,8 +43,8 @@ public class LogService extends AbstractService<LogRepository, Log, UUID> {
         Log log = mapper.map(filter);
         return repository.findAllSumarized(log.getLogDetail().getMessage(),
                 log.getLogDetail().getDetails(),
-                String.valueOf(log.getLogDetail().getSeverity()),
-                String.valueOf(log.getOrigin().getEnvironment()),
+                String.valueOf(log.getLogDetail().getSeverity()).toLowerCase(),
+                String.valueOf(log.getOrigin().getEnvironment()).toLowerCase(),
                 log.getOrigin().getOrigin(),
                 String.valueOf(log.getReportedBy().getId()),
                 pageable);

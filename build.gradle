@@ -44,6 +44,9 @@ dependencies {
 	testCompile group: 'org.springframework.security', name: 'spring-security-test', version: '5.2.0.RELEASE'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
+	// https://mvnrepository.com/artifact/org.springframework.security/spring-security-test
+	testCompile group: 'org.springframework.security', name: 'spring-security-test', version: '5.2.0.RELEASE'
+
 	//social oauth
 	compile group: 'org.springframework.social', name: 'spring-social-facebook', version: '2.0.3.RELEASE'
 
