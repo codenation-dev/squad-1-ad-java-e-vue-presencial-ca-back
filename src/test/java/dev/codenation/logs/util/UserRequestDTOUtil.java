@@ -4,7 +4,7 @@ import dev.codenation.logs.dto.request.UserRequestDTO;
 import org.springframework.stereotype.Component;
 
 @Component
-public class UserRequestDTOUtil {
+public class UserRequestDTOUtil extends AbstractUtil{
 
     public UserRequestDTO createUserRequestDTO(){
         return UserRequestDTO.builder()

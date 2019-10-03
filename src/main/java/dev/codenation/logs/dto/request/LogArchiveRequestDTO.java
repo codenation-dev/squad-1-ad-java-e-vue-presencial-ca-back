@@ -1,5 +1,6 @@
 package dev.codenation.logs.dto.request;
 
+import lombok.Builder;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -8,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.validation.constraints.NotNull;
 import java.util.UUID;
 
+@Builder
 @Data
 public class LogArchiveRequestDTO {
 

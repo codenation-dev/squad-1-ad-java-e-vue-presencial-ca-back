@@ -1,7 +1,10 @@
 package dev.codenation.logs.domain.vo;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.GeneratedValue;
@@ -9,6 +12,9 @@ import javax.persistence.GenerationType;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Data
 public class UserInformation {
 

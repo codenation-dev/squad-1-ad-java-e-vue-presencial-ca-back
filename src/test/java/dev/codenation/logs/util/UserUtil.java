@@ -4,7 +4,7 @@ import dev.codenation.logs.domain.entity.User;
 import org.springframework.stereotype.Component;
 
 @Component
-public class UserUtil {
+public class UserUtil extends AbstractUtil{
 
     public User createUser(){
         return User.builder()
